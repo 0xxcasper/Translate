@@ -6,5 +6,5 @@ target 'Translate' do
   use_frameworks!
 
   # Pods for Translate
-
+pod 'SVProgressHUD'
 end

@@ -69,11 +69,12 @@
 		253397C923C5AF0B005A8B0C /* Translate */ = {
 			isa = PBXGroup;
 			children = (
-				25E43E7823C5B8FB00D32420 /* Controllers */,
 				253397CA23C5AF0B005A8B0C /* AppDelegate.swift */,
+				25E43E7923C5B9DD00D32420 /* Utilities */,
 				25E43E7323C5B8D600D32420 /* Base */,
 				25E43E6A23C5B83A00D32420 /* Extentions */,
 				25E43E6723C5B7CA00D32420 /* Constant */,
+				25E43E7823C5B8FB00D32420 /* Controllers */,
 				253397D123C5AF0C005A8B0C /* Assets.xcassets */,
 				253397D323C5AF0C005A8B0C /* LaunchScreen.storyboard */,
 				253397D623C5AF0C005A8B0C /* Info.plist */,
@@ -115,6 +116,13 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		25E43E7923C5B9DD00D32420 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		8DD83C4AAD88F38CD8912368 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +151,7 @@
 				253397C323C5AF0B005A8B0C /* Sources */,
 				253397C423C5AF0B005A8B0C /* Frameworks */,
 				253397C523C5AF0B005A8B0C /* Resources */,
+				6F49F2A9EE52A9D19E5AD6B6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -219,6 +228,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6F49F2A9EE52A9D19E5AD6B6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Translate/Pods-Translate-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Translate/Pods-Translate-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Translate/Pods-Translate-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
