@@ -11,5 +11,6 @@ pod 'IQKeyboardManager'
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
+pod 'Firebase/MLNLTranslate'
 
 end

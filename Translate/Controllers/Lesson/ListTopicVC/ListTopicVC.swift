@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ListTopicVC: BaseTableViewController {
     
@@ -14,6 +15,25 @@ class ListTopicVC: BaseTableViewController {
         super.viewDidLoad()
         self.setTitle(title: "DANH SÁCH CHỦ ĐỀ")
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAddNewTopic))
+//        test()
+    }
+    
+    func test() {
+        let options = TranslatorOptions(sourceLanguage: .vi, targetLanguage: .en)
+        let englishGermanTranslator = NaturalLanguage.naturalLanguage().translator(options: options)
+        let conditions = ModelDownloadConditions(
+            allowsCellularAccess: false,
+            allowsBackgroundDownloading: true
+        )
+        englishGermanTranslator.downloadModelIfNeeded(with: conditions) { error in
+            guard error == nil else { return }
+            // Model downloaded successfully. Okay to start translating.
+            englishGermanTranslator.translate("tôi tên là") { translatedText, error in
+                guard error == nil, let translatedText = translatedText else { return }
+                // Translation succeeded.
+                print(translatedText)
+            }
+        }
     }
     
     override func registerCell() {
