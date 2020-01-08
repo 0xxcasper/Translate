@@ -24,6 +24,44 @@ class BaseViewController : UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    func setTitle(title: String) {
+        showNavigation()
+        self.navigationItem.title = title
+    }
+    
+    func push(controller: UIViewController, animated: Bool = true) {
+        controller.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(controller, animated: animated)
+    }
+
+    func pop(animated: Bool = true ) {
+        self.navigationController?.popViewController(animated: animated)
+    }
+
+    func present(controller: UIViewController, animated: Bool = true) {
+        self.present(controller, animated: animated, completion: nil)
+    }
+
+    func dismiss(animated: Bool = true) {
+        self.dismiss(animated: animated, completion: nil)
+    }
+    
+    func hideNavigationBar() {
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    func showNavigation() {
+        self.navigationController?.navigationBar.isHidden = false
+    }
+    
+    func hideTabbar() {
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    func showTabbar() {
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     func dismissKeyBoard() {
         self.view.endEditing(true)
     }

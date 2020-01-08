@@ -16,6 +16,8 @@ struct Firebase {
     
     static let shared = Firebase()
     
+    //MARK: - Authen
+    
     func signIn(_ email:String,_ pass: String,_ completion:@escaping ((Bool)->())) {
         Auth.auth().signIn(withEmail: email, password: pass) { (Result, Error) in
             if Error == nil {
@@ -54,7 +56,7 @@ struct Firebase {
         }
     }
     
-    func getDataUser(_ completion:@escaping ((User?)->())) {
+    func getDataUser(_ completion: @escaping ((User?)->())) {
         guard let currentId = Auth.auth().currentUser?.uid else { return }
         let ref = Database.database().reference().child("Users").child(currentId)
         ref.observeSingleEvent(of: .value) { (DataSnapshot) in
@@ -63,6 +65,41 @@ struct Firebase {
                 completion(user)
             } else {
                 completion(nil)
+            }
+        }
+    }
+    
+    //MARK: - Topic
+    
+    func getAllTopic(_ completion: @escaping (([Topic]?)->())) {
+        SVProgressHUD.show()
+        guard let currentId = Auth.auth().currentUser?.uid else { return }
+        
+        let ref = Database.database().reference().child("Topics").child(currentId)
+        ref.observe(.value) { (DataSnapshot) in
+            SVProgressHUD.dismiss()
+            if let data = DataSnapshot.value as? [String:AnyObject] {
+                var topics = [Topic]()
+                Array(data.values).forEach({ (Obj) in
+                    let topic = Topic(Obj as! [String : AnyObject])
+                    topics.append(topic)
+                })
+                completion(topics)
+            } else {
+                completion(nil)
+            }
+        }
+    }
+    
+    func createTopic(_ title: String) {
+        SVProgressHUD.show()
+        guard let currentId = Auth.auth().currentUser?.uid else { return }
+        let ref = Database.database().reference().child("Topics").child(currentId).childByAutoId()
+        let value = ["title": title, "id": ref.key ?? ""]
+        ref.updateChildValues(value) { (error, data) in
+            SVProgressHUD.dismiss()
+            if (error != nil) {
+                SVProgressHUD.showError(withStatus: error?.localizedDescription)
             }
         }
     }

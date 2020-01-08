@@ -17,16 +17,16 @@ class AppRouter {
     func openHome() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate, let appWindow = appDelegate.window else { return }
         
-        let topicVC = ListTopicVC()
+        let topicVC = UINavigationController(rootViewController: ListTopicVC())
         topicVC.tabBarItem = UITabBarItem(title: "Bài học", image: #imageLiteral(resourceName: "topic"), tag: 0)
         
-        let listenVC = ListListenVC()
+        let listenVC = UINavigationController(rootViewController: ListListenVC())
         listenVC.tabBarItem = UITabBarItem(title: "Luyện nghe", image: #imageLiteral(resourceName: "listen"), tag: 1)
 
-        let speakVC = ListSpeakVC()
+        let speakVC = UINavigationController(rootViewController: ListSpeakVC())
         speakVC.tabBarItem = UITabBarItem(title: "Luyện nói", image: #imageLiteral(resourceName: "speak"), tag: 2)
         
-        let infoVC = InfoVC()
+        let infoVC = UINavigationController(rootViewController: InfoVC())
         infoVC.tabBarItem = UITabBarItem(title: "Thông tin", image: #imageLiteral(resourceName: "info"), tag: 3)
         
         let tabbar = UITabBarController()

@@ -20,4 +20,3 @@ struct User {
         email = data["email"] as? String
     }
 }
-
