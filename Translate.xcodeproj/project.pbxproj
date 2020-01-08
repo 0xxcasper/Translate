@@ -17,6 +17,14 @@
 		25E43E7623C5B8D600D32420 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E43E7423C5B8D600D32420 /* BaseViewController.swift */; };
 		25E43E7723C5B8D600D32420 /* BaseViewXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E43E7523C5B8D600D32420 /* BaseViewXib.swift */; };
 		25E43E7B23C5C03900D32420 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 25E43E7A23C5C03800D32420 /* GoogleService-Info.plist */; };
+		25E43E8723C5CF1D00D32420 /* ListTopicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E43E8523C5CF1D00D32420 /* ListTopicVC.swift */; };
+		25E43E8823C5CF1D00D32420 /* ListTopicVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E43E8623C5CF1D00D32420 /* ListTopicVC.xib */; };
+		25E43E8C23C5CF4E00D32420 /* ListListenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E43E8A23C5CF4E00D32420 /* ListListenVC.swift */; };
+		25E43E8D23C5CF4E00D32420 /* ListListenVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E43E8B23C5CF4E00D32420 /* ListListenVC.xib */; };
+		25E43E9123C5CF7600D32420 /* ListSpeakVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E43E8F23C5CF7600D32420 /* ListSpeakVC.swift */; };
+		25E43E9223C5CF7600D32420 /* ListSpeakVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E43E9023C5CF7600D32420 /* ListSpeakVC.xib */; };
+		25E43E9B23C5D5F100D32420 /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E43E9923C5D5F100D32420 /* InfoVC.swift */; };
+		25E43E9C23C5D5F100D32420 /* InfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E43E9A23C5D5F100D32420 /* InfoVC.xib */; };
 		C90A276B2FAAC93896D854EA /* Pods_Translate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5AA6FF43B679FF796218A40 /* Pods_Translate.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +42,14 @@
 		25E43E7423C5B8D600D32420 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		25E43E7523C5B8D600D32420 /* BaseViewXib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewXib.swift; sourceTree = "<group>"; };
 		25E43E7A23C5C03800D32420 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		25E43E8523C5CF1D00D32420 /* ListTopicVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTopicVC.swift; sourceTree = "<group>"; };
+		25E43E8623C5CF1D00D32420 /* ListTopicVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTopicVC.xib; sourceTree = "<group>"; };
+		25E43E8A23C5CF4E00D32420 /* ListListenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListListenVC.swift; sourceTree = "<group>"; };
+		25E43E8B23C5CF4E00D32420 /* ListListenVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListListenVC.xib; sourceTree = "<group>"; };
+		25E43E8F23C5CF7600D32420 /* ListSpeakVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSpeakVC.swift; sourceTree = "<group>"; };
+		25E43E9023C5CF7600D32420 /* ListSpeakVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListSpeakVC.xib; sourceTree = "<group>"; };
+		25E43E9923C5D5F100D32420 /* InfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVC.swift; sourceTree = "<group>"; };
+		25E43E9A23C5D5F100D32420 /* InfoVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoVC.xib; sourceTree = "<group>"; };
 		84CEA38C3BFF1D4C86F8903A /* Pods-Translate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Translate.debug.xcconfig"; path = "Target Support Files/Pods-Translate/Pods-Translate.debug.xcconfig"; sourceTree = "<group>"; };
 		C5AA6FF43B679FF796218A40 /* Pods_Translate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Translate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -115,6 +131,10 @@
 		25E43E7823C5B8FB00D32420 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				25E43E7C23C5CCE300D32420 /* Lesson */,
+				25E43E7D23C5CD3300D32420 /* Listen */,
+				25E43E7E23C5CD8A00D32420 /* Speak */,
+				25E43E7F23C5CDB900D32420 /* Info */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -124,6 +144,74 @@
 			children = (
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		25E43E7C23C5CCE300D32420 /* Lesson */ = {
+			isa = PBXGroup;
+			children = (
+				25E43E8023C5CEED00D32420 /* ListTopicVC */,
+			);
+			path = Lesson;
+			sourceTree = "<group>";
+		};
+		25E43E7D23C5CD3300D32420 /* Listen */ = {
+			isa = PBXGroup;
+			children = (
+				25E43E8923C5CF3000D32420 /* ListListenVC */,
+			);
+			path = Listen;
+			sourceTree = "<group>";
+		};
+		25E43E7E23C5CD8A00D32420 /* Speak */ = {
+			isa = PBXGroup;
+			children = (
+				25E43E8E23C5CF6000D32420 /* ListSpeakVC */,
+			);
+			path = Speak;
+			sourceTree = "<group>";
+		};
+		25E43E7F23C5CDB900D32420 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				25E43E9823C5D5A500D32420 /* InfoVC */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
+		25E43E8023C5CEED00D32420 /* ListTopicVC */ = {
+			isa = PBXGroup;
+			children = (
+				25E43E8523C5CF1D00D32420 /* ListTopicVC.swift */,
+				25E43E8623C5CF1D00D32420 /* ListTopicVC.xib */,
+			);
+			path = ListTopicVC;
+			sourceTree = "<group>";
+		};
+		25E43E8923C5CF3000D32420 /* ListListenVC */ = {
+			isa = PBXGroup;
+			children = (
+				25E43E8A23C5CF4E00D32420 /* ListListenVC.swift */,
+				25E43E8B23C5CF4E00D32420 /* ListListenVC.xib */,
+			);
+			path = ListListenVC;
+			sourceTree = "<group>";
+		};
+		25E43E8E23C5CF6000D32420 /* ListSpeakVC */ = {
+			isa = PBXGroup;
+			children = (
+				25E43E8F23C5CF7600D32420 /* ListSpeakVC.swift */,
+				25E43E9023C5CF7600D32420 /* ListSpeakVC.xib */,
+			);
+			path = ListSpeakVC;
+			sourceTree = "<group>";
+		};
+		25E43E9823C5D5A500D32420 /* InfoVC */ = {
+			isa = PBXGroup;
+			children = (
+				25E43E9923C5D5F100D32420 /* InfoVC.swift */,
+				25E43E9A23C5D5F100D32420 /* InfoVC.xib */,
+			);
+			path = InfoVC;
 			sourceTree = "<group>";
 		};
 		8DD83C4AAD88F38CD8912368 /* Pods */ = {
@@ -203,9 +291,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25E43E8823C5CF1D00D32420 /* ListTopicVC.xib in Resources */,
 				253397D523C5AF0C005A8B0C /* LaunchScreen.storyboard in Resources */,
 				25E43E7B23C5C03900D32420 /* GoogleService-Info.plist in Resources */,
+				25E43E9223C5CF7600D32420 /* ListSpeakVC.xib in Resources */,
+				25E43E8D23C5CF4E00D32420 /* ListListenVC.xib in Resources */,
 				253397D223C5AF0C005A8B0C /* Assets.xcassets in Resources */,
+				25E43E9C23C5D5F100D32420 /* InfoVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,12 +350,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25E43E8723C5CF1D00D32420 /* ListTopicVC.swift in Sources */,
 				25E43E7723C5B8D600D32420 /* BaseViewXib.swift in Sources */,
 				25E43E6F23C5B85800D32420 /* UITableView+Extention.swift in Sources */,
 				25E43E6923C5B7E100D32420 /* AppConstant.swift in Sources */,
+				25E43E9B23C5D5F100D32420 /* InfoVC.swift in Sources */,
 				253397CB23C5AF0B005A8B0C /* AppDelegate.swift in Sources */,
 				25E43E7023C5B85800D32420 /* String+Extention.swift in Sources */,
 				25E43E6E23C5B85800D32420 /* UIView+Extention.swift in Sources */,
+				25E43E9123C5CF7600D32420 /* ListSpeakVC.swift in Sources */,
+				25E43E8C23C5CF4E00D32420 /* ListListenVC.swift in Sources */,
 				25E43E7623C5B8D600D32420 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
