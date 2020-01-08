@@ -25,6 +25,14 @@
 		25E43E9223C5CF7600D32420 /* ListSpeakVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E43E9023C5CF7600D32420 /* ListSpeakVC.xib */; };
 		25E43E9B23C5D5F100D32420 /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E43E9923C5D5F100D32420 /* InfoVC.swift */; };
 		25E43E9C23C5D5F100D32420 /* InfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E43E9A23C5D5F100D32420 /* InfoVC.xib */; };
+		8451077C23C60A5800D9E066 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8451077823C60A5800D9E066 /* RegisterViewController.xib */; };
+		8451077D23C60A5800D9E066 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8451077923C60A5800D9E066 /* LoginViewController.xib */; };
+		8451077E23C60A5800D9E066 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8451077A23C60A5800D9E066 /* LoginViewController.swift */; };
+		8451077F23C60A5800D9E066 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8451077B23C60A5800D9E066 /* RegisterViewController.swift */; };
+		8451078223C60A8200D9E066 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8451078123C60A8200D9E066 /* User.swift */; };
+		8451078523C60A9100D9E066 /* UserAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8451078423C60A9100D9E066 /* UserAuthViewModel.swift */; };
+		8451078923C60AC500D9E066 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8451078823C60AC500D9E066 /* Firebase.swift */; };
+		8451078B23C60BD500D9E066 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8451078A23C60BD500D9E066 /* AppRouter.swift */; };
 		C90A276B2FAAC93896D854EA /* Pods_Translate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5AA6FF43B679FF796218A40 /* Pods_Translate.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +58,14 @@
 		25E43E9023C5CF7600D32420 /* ListSpeakVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListSpeakVC.xib; sourceTree = "<group>"; };
 		25E43E9923C5D5F100D32420 /* InfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVC.swift; sourceTree = "<group>"; };
 		25E43E9A23C5D5F100D32420 /* InfoVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoVC.xib; sourceTree = "<group>"; };
+		8451077823C60A5800D9E066 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		8451077923C60A5800D9E066 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		8451077A23C60A5800D9E066 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8451077B23C60A5800D9E066 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		8451078123C60A8200D9E066 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8451078423C60A9100D9E066 /* UserAuthViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAuthViewModel.swift; sourceTree = "<group>"; };
+		8451078823C60AC500D9E066 /* Firebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
+		8451078A23C60BD500D9E066 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		84CEA38C3BFF1D4C86F8903A /* Pods-Translate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Translate.debug.xcconfig"; path = "Target Support Files/Pods-Translate/Pods-Translate.debug.xcconfig"; sourceTree = "<group>"; };
 		C5AA6FF43B679FF796218A40 /* Pods_Translate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Translate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -89,9 +105,12 @@
 			children = (
 				253397CA23C5AF0B005A8B0C /* AppDelegate.swift */,
 				25E43E7923C5B9DD00D32420 /* Utilities */,
+				8451078723C60AC500D9E066 /* Database */,
 				25E43E7323C5B8D600D32420 /* Base */,
 				25E43E6A23C5B83A00D32420 /* Extentions */,
 				25E43E6723C5B7CA00D32420 /* Constant */,
+				8451078023C60A7500D9E066 /* Model */,
+				8451078323C60A8500D9E066 /* ViewModel */,
 				25E43E7823C5B8FB00D32420 /* Controllers */,
 				253397D123C5AF0C005A8B0C /* Assets.xcassets */,
 				253397D323C5AF0C005A8B0C /* LaunchScreen.storyboard */,
@@ -131,6 +150,7 @@
 		25E43E7823C5B8FB00D32420 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8451077723C60A5800D9E066 /* Authentic */,
 				25E43E7C23C5CCE300D32420 /* Lesson */,
 				25E43E7D23C5CD3300D32420 /* Listen */,
 				25E43E7E23C5CD8A00D32420 /* Speak */,
@@ -142,6 +162,7 @@
 		25E43E7923C5B9DD00D32420 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				8451078A23C60BD500D9E066 /* AppRouter.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -212,6 +233,41 @@
 				25E43E9A23C5D5F100D32420 /* InfoVC.xib */,
 			);
 			path = InfoVC;
+			sourceTree = "<group>";
+		};
+		8451077723C60A5800D9E066 /* Authentic */ = {
+			isa = PBXGroup;
+			children = (
+				8451077B23C60A5800D9E066 /* RegisterViewController.swift */,
+				8451077823C60A5800D9E066 /* RegisterViewController.xib */,
+				8451077A23C60A5800D9E066 /* LoginViewController.swift */,
+				8451077923C60A5800D9E066 /* LoginViewController.xib */,
+			);
+			path = Authentic;
+			sourceTree = "<group>";
+		};
+		8451078023C60A7500D9E066 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8451078123C60A8200D9E066 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8451078323C60A8500D9E066 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8451078423C60A9100D9E066 /* UserAuthViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8451078723C60AC500D9E066 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				8451078823C60AC500D9E066 /* Firebase.swift */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 		8DD83C4AAD88F38CD8912368 /* Pods */ = {
@@ -298,6 +354,8 @@
 				25E43E8D23C5CF4E00D32420 /* ListListenVC.xib in Resources */,
 				253397D223C5AF0C005A8B0C /* Assets.xcassets in Resources */,
 				25E43E9C23C5D5F100D32420 /* InfoVC.xib in Resources */,
+				8451077C23C60A5800D9E066 /* RegisterViewController.xib in Resources */,
+				8451077D23C60A5800D9E066 /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,15 +408,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8451078523C60A9100D9E066 /* UserAuthViewModel.swift in Sources */,
+				8451077E23C60A5800D9E066 /* LoginViewController.swift in Sources */,
 				25E43E8723C5CF1D00D32420 /* ListTopicVC.swift in Sources */,
 				25E43E7723C5B8D600D32420 /* BaseViewXib.swift in Sources */,
 				25E43E6F23C5B85800D32420 /* UITableView+Extention.swift in Sources */,
 				25E43E6923C5B7E100D32420 /* AppConstant.swift in Sources */,
+				8451078B23C60BD500D9E066 /* AppRouter.swift in Sources */,
 				25E43E9B23C5D5F100D32420 /* InfoVC.swift in Sources */,
+				8451078223C60A8200D9E066 /* User.swift in Sources */,
 				253397CB23C5AF0B005A8B0C /* AppDelegate.swift in Sources */,
 				25E43E7023C5B85800D32420 /* String+Extention.swift in Sources */,
+				8451078923C60AC500D9E066 /* Firebase.swift in Sources */,
 				25E43E6E23C5B85800D32420 /* UIView+Extention.swift in Sources */,
 				25E43E9123C5CF7600D32420 /* ListSpeakVC.swift in Sources */,
+				8451077F23C60A5800D9E066 /* RegisterViewController.swift in Sources */,
 				25E43E8C23C5CF4E00D32420 /* ListListenVC.swift in Sources */,
 				25E43E7623C5B8D600D32420 /* BaseViewController.swift in Sources */,
 			);
