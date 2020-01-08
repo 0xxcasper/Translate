@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,7 @@
 		25E43E7023C5B85800D32420 /* String+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E43E6D23C5B85800D32420 /* String+Extention.swift */; };
 		25E43E7623C5B8D600D32420 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E43E7423C5B8D600D32420 /* BaseViewController.swift */; };
 		25E43E7723C5B8D600D32420 /* BaseViewXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E43E7523C5B8D600D32420 /* BaseViewXib.swift */; };
+		25E43E7B23C5C03900D32420 /* GoogleService-Info (1).plist in Resources */ = {isa = PBXBuildFile; fileRef = 25E43E7A23C5C03800D32420 /* GoogleService-Info (1).plist */; };
 		C90A276B2FAAC93896D854EA /* Pods_Translate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5AA6FF43B679FF796218A40 /* Pods_Translate.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		25E43E6D23C5B85800D32420 /* String+Extention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extention.swift"; sourceTree = "<group>"; };
 		25E43E7423C5B8D600D32420 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		25E43E7523C5B8D600D32420 /* BaseViewXib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewXib.swift; sourceTree = "<group>"; };
+		25E43E7A23C5C03800D32420 /* GoogleService-Info (1).plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info (1).plist"; sourceTree = "<group>"; };
 		84CEA38C3BFF1D4C86F8903A /* Pods-Translate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Translate.debug.xcconfig"; path = "Target Support Files/Pods-Translate/Pods-Translate.debug.xcconfig"; sourceTree = "<group>"; };
 		C5AA6FF43B679FF796218A40 /* Pods_Translate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Translate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -78,6 +80,7 @@
 				253397D123C5AF0C005A8B0C /* Assets.xcassets */,
 				253397D323C5AF0C005A8B0C /* LaunchScreen.storyboard */,
 				253397D623C5AF0C005A8B0C /* Info.plist */,
+				25E43E7A23C5C03800D32420 /* GoogleService-Info (1).plist */,
 			);
 			path = Translate;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				253397D523C5AF0C005A8B0C /* LaunchScreen.storyboard in Resources */,
+				25E43E7B23C5C03900D32420 /* GoogleService-Info (1).plist in Resources */,
 				253397D223C5AF0C005A8B0C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

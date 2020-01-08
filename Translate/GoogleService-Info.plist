@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>97856259014-o4jfke9h34ee707olp6srddbbi19bnpk.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.97856259014-o4jfke9h34ee707olp6srddbbi19bnpk</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCvnPqOKmp_pulFUbt_c46KNs1HyYiUc7g</string>
+	<key>GCM_SENDER_ID</key>
+	<string>97856259014</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>SangNX.Translate</string>
+	<key>PROJECT_ID</key>
+	<string>translate-fbeb4</string>
+	<key>STORAGE_BUCKET</key>
+	<string>translate-fbeb4.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:97856259014:ios:5e205a4c1486105051e8c7</string>
+	<key>DATABASE_URL</key>
+	<string>https://translate-fbeb4.firebaseio.com</string>
+</dict>
+</plist>

@@ -7,4 +7,5 @@ target 'Translate' do
 
   # Pods for Translate
 pod 'SVProgressHUD'
+pod 'Firebase/Analytics'
 end
