@@ -36,7 +36,9 @@ class ListTopicVC: BaseTableViewController {
     }
     
     override func didSelectRowAt(selectedItem: Any, indexPath: IndexPath) {
-        
+        let listSentenceVC = ListSentenceViewController()
+        listSentenceVC.topic = selectedItem as? Topic
+        self.push(controller: listSentenceVC)
     }
     
     @objc func didTapAddNewTopic() {

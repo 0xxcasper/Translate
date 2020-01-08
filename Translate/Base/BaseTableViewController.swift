@@ -30,8 +30,6 @@ class BaseTableViewController: BaseViewController {
         registerCell()
         myTableView.dataSource = self
         myTableView.delegate = self
-        myTableView.showsVerticalScrollIndicator = false
-        myTableView.separatorStyle = .none
         fetchData()
     }
     

@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListTopicVC" customModule="Translate" customModuleProvider="target">
             <connections>
-                <outlet property="myTableView" destination="qS2-xI-wKK" id="7kY-es-4tz"/>
+                <outlet property="myTableView" destination="pFI-Lx-EWz" id="xMb-Oc-Ebr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,17 +19,17 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qS2-xI-wKK">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pFI-Lx-EWz">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="qS2-xI-wKK" secondAttribute="trailing" id="ALj-I8-Wr0"/>
-                <constraint firstItem="qS2-xI-wKK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="D62-dU-EHy"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="qS2-xI-wKK" secondAttribute="bottom" id="bVj-uZ-PS9"/>
-                <constraint firstItem="qS2-xI-wKK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="mLK-HJ-CE0"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="pFI-Lx-EWz" secondAttribute="bottom" id="PRw-by-Dtq"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pFI-Lx-EWz" secondAttribute="trailing" id="SEe-n7-gmK"/>
+                <constraint firstItem="pFI-Lx-EWz" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ft8-KV-afI"/>
+                <constraint firstItem="pFI-Lx-EWz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="oJc-Ej-OSg"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="139" y="145"/>

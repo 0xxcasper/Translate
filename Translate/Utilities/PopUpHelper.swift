@@ -22,7 +22,9 @@ struct PopUpHelper {
 
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             let textField = alert!.textFields![0]
-            completion(textField.text ?? "")
+            if let text = textField.text, !text.isEmpty {
+                completion(text)
+            }
         }))
 
         vc.present(alert, animated: true, completion: nil)
