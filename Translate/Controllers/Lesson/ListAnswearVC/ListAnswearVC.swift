@@ -64,8 +64,7 @@ class ListAnswearVC: BaseTableViewController {
     
     override func fetchData() {
         super.fetchData()
-        Firebase.shared.getAllAnswears(topic.id, sentence.id, { (reponse) in
-            guard let sentences = reponse else { return }
+        Firebase.shared.getAllAnswears(topic.id, sentence.id, { (sentences) in
             self.didFetchData(data: sentences)
         })
     }

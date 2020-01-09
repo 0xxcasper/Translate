@@ -28,8 +28,7 @@ class ListSentenceViewController: BaseTableViewController {
     
     override func fetchData() {
         super.fetchData()
-        Firebase.shared.getAllSentence(topic.id) { (reponse) in
-            guard let sentences = reponse else { return }
+        Firebase.shared.getAllSentence(topic.id) { (sentences) in
             self.didFetchData(data: sentences)
         }
     }

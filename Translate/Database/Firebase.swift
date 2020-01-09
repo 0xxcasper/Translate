@@ -70,7 +70,7 @@ struct Firebase {
     
     //MARK: - Topic
     
-    func getAllTopic(_ completion: @escaping (([Topic]?)->())) {
+    func getAllTopic(_ completion: @escaping (([Topic])->())) {
         SVProgressHUD.show()
         guard let currentId = Auth.auth().currentUser?.uid else { return }
         
@@ -85,7 +85,7 @@ struct Firebase {
                 })
                 completion(topics)
             } else {
-                completion(nil)
+                completion([])
             }
         }
     }
@@ -106,8 +106,7 @@ struct Firebase {
     func createSentence(_ text: String, _ id: String, isVN: Bool = true) {
         SVProgressHUD.show()
         FirebaseTranslate.shared.translateLanguage(text: text, isVN: isVN,  completion: { (reponse) in
-            guard let currentId = Auth.auth().currentUser?.uid else { return }
-            let ref = Database.database().reference().child(SENTENCES).child(currentId).child(id).childByAutoId()
+            let ref = Database.database().reference().child(SENTENCES).child(id).childByAutoId()
             let value = [ENGLISH: reponse, VNESE: text, ID: ref.key ?? kEmpty]
             ref.updateChildValues(value) { (error, data) in
                 SVProgressHUD.dismiss()
@@ -121,11 +120,9 @@ struct Firebase {
         }
     }
     
-    func getAllSentence(_ id: String, _ completion: @escaping (([Sentence]?)->())) {
+    func getAllSentence(_ id: String, _ completion: @escaping (([Sentence])->())) {
         SVProgressHUD.show()
-        guard let currentId = Auth.auth().currentUser?.uid else { return }
-        
-        let ref = Database.database().reference().child(SENTENCES).child(currentId).child(id)
+        let ref = Database.database().reference().child(SENTENCES).child(id)
         ref.observe(.value) { (DataSnapshot) in
             SVProgressHUD.dismiss()
             if let data = DataSnapshot.value as? [String:AnyObject] {
@@ -136,15 +133,14 @@ struct Firebase {
                 })
                 completion(sentences)
             } else {
-                completion(nil)
+                completion([])
             }
         }
     }
     
-    func getAllAnswears(_ idParent: String, _ idChild: String, _ completion: @escaping (([Sentence]?)->())) {
+    func getAllAnswears(_ idParent: String, _ idChild: String, _ completion: @escaping (([Sentence])->())) {
         SVProgressHUD.show()
-        guard let currentId = Auth.auth().currentUser?.uid else { return }
-        let ref = Database.database().reference().child(ANSWEARS).child(currentId).child(idParent).child(idChild)
+        let ref = Database.database().reference().child(ANSWEARS).child(idParent).child(idChild)
         ref.observe(.value) { (DataSnapshot) in
             SVProgressHUD.dismiss()
             if let data = DataSnapshot.value as? [String:AnyObject] {
@@ -155,7 +151,7 @@ struct Firebase {
                 })
                 completion(sentences)
             } else {
-                completion(nil)
+                completion([])
             }
         }
     }
@@ -163,8 +159,7 @@ struct Firebase {
     func createAnswear(_ text: String, _ idParent: String, _ idChild: String, isVN: Bool = true) {
         SVProgressHUD.show()
         FirebaseTranslate.shared.translateLanguage(text: text, isVN: isVN,  completion: { (reponse) in
-            guard let currentId = Auth.auth().currentUser?.uid else { return }
-            let ref = Database.database().reference().child(ANSWEARS).child(currentId).child(idParent).child(idChild).childByAutoId()
+            let ref = Database.database().reference().child(ANSWEARS).child(idParent).child(idChild).childByAutoId()
             let value = [ENGLISH: reponse, VNESE: text, ID: ref.key ?? kEmpty]
             ref.updateChildValues(value) { (error, data) in
                 SVProgressHUD.dismiss()
@@ -180,8 +175,7 @@ struct Firebase {
     
     func deleteAnswear(_ idParent: String, _ idChild: String, _ idItem: String) {
         SVProgressHUD.show()
-        guard let currentId = Auth.auth().currentUser?.uid else { return }
-        let ref = Database.database().reference().child(ANSWEARS).child(currentId).child(idParent).child(idChild).child(idItem)
+        let ref = Database.database().reference().child(ANSWEARS).child(idChild).child(idItem)
         ref.removeValue { error, _ in
             SVProgressHUD.dismiss()
             if (error != nil) {
@@ -195,9 +189,9 @@ struct Firebase {
         let dispatchGroup = DispatchGroup()
         dispatchGroup.enter()
         dispatchGroup.enter()
-        guard let currentId = Auth.auth().currentUser?.uid else { return }
-        let refANSWEARS = Database.database().reference().child(ANSWEARS).child(currentId).child(idParent).child(idChild)
-        let refSENTENCES = Database.database().reference().child(SENTENCES).child(currentId).child(idParent).child(idChild)
+        let refANSWEARS = Database.database().reference().child(ANSWEARS).child(idParent).child(idChild)
+        let refSENTENCES = Database.database().reference().child(SENTENCES).child(idParent).child(idChild)
+        
         refANSWEARS.removeValue { error, _ in
             dispatchGroup.leave()
             if (error != nil) {
@@ -225,15 +219,9 @@ struct Firebase {
         dispatchGroup.enter()
         guard let currentId = Auth.auth().currentUser?.uid else { return }
         let refTOPIC = Database.database().reference().child(TOPIC).child(currentId).child(id)
-        let refANSWEARS = Database.database().reference().child(ANSWEARS).child(currentId).child(id)
-        let refSENTENCES = Database.database().reference().child(SENTENCES).child(currentId).child(id)
+        let refANSWEARS = Database.database().reference().child(ANSWEARS).child(id)
+        let refSENTENCES = Database.database().reference().child(SENTENCES).child(id)
         
-        refTOPIC.removeValue { error, _ in
-            dispatchGroup.leave()
-            if (error != nil) {
-                SVProgressHUD.showError(withStatus: error?.localizedDescription)
-            }
-        }
         refANSWEARS.removeValue { error, _ in
             dispatchGroup.leave()
             if (error != nil) {
@@ -242,6 +230,13 @@ struct Firebase {
         }
         
         refSENTENCES.removeValue { error, _ in
+            dispatchGroup.leave()
+            if (error != nil) {
+                SVProgressHUD.showError(withStatus: error?.localizedDescription)
+            }
+        }
+        
+        refTOPIC.removeValue { error, _ in
             dispatchGroup.leave()
             if (error != nil) {
                 SVProgressHUD.showError(withStatus: error?.localizedDescription)

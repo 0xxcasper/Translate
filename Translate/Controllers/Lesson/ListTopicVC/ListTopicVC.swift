@@ -24,8 +24,7 @@ class ListTopicVC: BaseTableViewController {
     
     override func fetchData() {
         super.fetchData()
-        Firebase.shared.getAllTopic { (Topics) in
-            guard let topics = Topics else { return }
+        Firebase.shared.getAllTopic { (topics) in
             self.didFetchData(data: topics)
         }
     }
