@@ -25,6 +25,16 @@
 		25E43E9223C5CF7600D32420 /* ListSpeakVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E43E9023C5CF7600D32420 /* ListSpeakVC.xib */; };
 		25E43E9B23C5D5F100D32420 /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E43E9923C5D5F100D32420 /* InfoVC.swift */; };
 		25E43E9C23C5D5F100D32420 /* InfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E43E9A23C5D5F100D32420 /* InfoVC.xib */; };
+		25E5734923C6D0BB0001C637 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E5734823C6D0BB0001C637 /* Delegate.swift */; };
+		25E5734B23C6DD620001C637 /* FirebaseTranslate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E5734A23C6DD620001C637 /* FirebaseTranslate.swift */; };
+		25E5734D23C6EAB30001C637 /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E5734C23C6EAB30001C637 /* Sentence.swift */; };
+		25E5735123C7046D0001C637 /* SentenceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E5734F23C7046D0001C637 /* SentenceCell.swift */; };
+		25E5735223C7046D0001C637 /* SentenceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E5735023C7046D0001C637 /* SentenceCell.xib */; };
+		25E5735623C70BE80001C637 /* ListAnswearVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E5735423C70BE80001C637 /* ListAnswearVC.swift */; };
+		25E5735723C70BE80001C637 /* ListAnswearVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E5735523C70BE80001C637 /* ListAnswearVC.xib */; };
+		25E5735A23C71A170001C637 /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E5735923C71A170001C637 /* UIImageView + Extension.swift */; };
+		25E5735E23C71BD90001C637 /* AnswearCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E5735C23C71BD90001C637 /* AnswearCell.swift */; };
+		25E5735F23C71BD90001C637 /* AnswearCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E5735D23C71BD90001C637 /* AnswearCell.xib */; };
 		8451077C23C60A5800D9E066 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8451077823C60A5800D9E066 /* RegisterViewController.xib */; };
 		8451077D23C60A5800D9E066 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8451077923C60A5800D9E066 /* LoginViewController.xib */; };
 		8451077E23C60A5800D9E066 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8451077A23C60A5800D9E066 /* LoginViewController.swift */; };
@@ -66,6 +76,16 @@
 		25E43E9023C5CF7600D32420 /* ListSpeakVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListSpeakVC.xib; sourceTree = "<group>"; };
 		25E43E9923C5D5F100D32420 /* InfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVC.swift; sourceTree = "<group>"; };
 		25E43E9A23C5D5F100D32420 /* InfoVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoVC.xib; sourceTree = "<group>"; };
+		25E5734823C6D0BB0001C637 /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
+		25E5734A23C6DD620001C637 /* FirebaseTranslate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTranslate.swift; sourceTree = "<group>"; };
+		25E5734C23C6EAB30001C637 /* Sentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
+		25E5734F23C7046D0001C637 /* SentenceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceCell.swift; sourceTree = "<group>"; };
+		25E5735023C7046D0001C637 /* SentenceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SentenceCell.xib; sourceTree = "<group>"; };
+		25E5735423C70BE80001C637 /* ListAnswearVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAnswearVC.swift; sourceTree = "<group>"; };
+		25E5735523C70BE80001C637 /* ListAnswearVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListAnswearVC.xib; sourceTree = "<group>"; };
+		25E5735923C71A170001C637 /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
+		25E5735C23C71BD90001C637 /* AnswearCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswearCell.swift; sourceTree = "<group>"; };
+		25E5735D23C71BD90001C637 /* AnswearCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnswearCell.xib; sourceTree = "<group>"; };
 		8451077823C60A5800D9E066 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		8451077923C60A5800D9E066 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		8451077A23C60A5800D9E066 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +140,8 @@
 			isa = PBXGroup;
 			children = (
 				253397CA23C5AF0B005A8B0C /* AppDelegate.swift */,
+				25E5735823C70F360001C637 /* Views */,
+				25E5734723C6D0940001C637 /* Delegate */,
 				25E43E7923C5B9DD00D32420 /* Utilities */,
 				8451078723C60AC500D9E066 /* Database */,
 				25E43E7323C5B8D600D32420 /* Base */,
@@ -150,6 +172,7 @@
 				25E43E6D23C5B85800D32420 /* String+Extention.swift */,
 				25E43E6C23C5B85800D32420 /* UITableView+Extention.swift */,
 				25E43E6B23C5B85800D32420 /* UIView+Extention.swift */,
+				25E5735923C71A170001C637 /* UIImageView + Extension.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -189,6 +212,7 @@
 		25E43E7C23C5CCE300D32420 /* Lesson */ = {
 			isa = PBXGroup;
 			children = (
+				25E5735323C70BB00001C637 /* ListAnswearVC */,
 				8451079C23C625FD00D9E066 /* ListSentenceVC */,
 				25E43E8023C5CEED00D32420 /* ListTopicVC */,
 			);
@@ -256,6 +280,49 @@
 			path = InfoVC;
 			sourceTree = "<group>";
 		};
+		25E5734723C6D0940001C637 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				25E5734823C6D0BB0001C637 /* Delegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		25E5734E23C704440001C637 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				25E5734F23C7046D0001C637 /* SentenceCell.swift */,
+				25E5735023C7046D0001C637 /* SentenceCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		25E5735323C70BB00001C637 /* ListAnswearVC */ = {
+			isa = PBXGroup;
+			children = (
+				25E5735B23C71BB10001C637 /* Cell */,
+				25E5735423C70BE80001C637 /* ListAnswearVC.swift */,
+				25E5735523C70BE80001C637 /* ListAnswearVC.xib */,
+			);
+			path = ListAnswearVC;
+			sourceTree = "<group>";
+		};
+		25E5735823C70F360001C637 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		25E5735B23C71BB10001C637 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				25E5735C23C71BD90001C637 /* AnswearCell.swift */,
+				25E5735D23C71BD90001C637 /* AnswearCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		8451077723C60A5800D9E066 /* Authentic */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +339,7 @@
 			children = (
 				8451078123C60A8200D9E066 /* User.swift */,
 				8451079323C61DD100D9E066 /* Topic.swift */,
+				25E5734C23C6EAB30001C637 /* Sentence.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -288,6 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				8451078823C60AC500D9E066 /* Firebase.swift */,
+				25E5734A23C6DD620001C637 /* FirebaseTranslate.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -304,6 +373,7 @@
 		8451079C23C625FD00D9E066 /* ListSentenceVC */ = {
 			isa = PBXGroup;
 			children = (
+				25E5734E23C704440001C637 /* Cell */,
 				8451079D23C6261C00D9E066 /* ListSentenceViewController.swift */,
 				8451079E23C6261C00D9E066 /* ListSentenceViewController.xib */,
 			);
@@ -390,6 +460,8 @@
 			files = (
 				25E43E8823C5CF1D00D32420 /* ListTopicVC.xib in Resources */,
 				253397D523C5AF0C005A8B0C /* LaunchScreen.storyboard in Resources */,
+				25E5735723C70BE80001C637 /* ListAnswearVC.xib in Resources */,
+				25E5735F23C71BD90001C637 /* AnswearCell.xib in Resources */,
 				25E43E7B23C5C03900D32420 /* GoogleService-Info.plist in Resources */,
 				25E43E9223C5CF7600D32420 /* ListSpeakVC.xib in Resources */,
 				25E43E8D23C5CF4E00D32420 /* ListListenVC.xib in Resources */,
@@ -398,6 +470,7 @@
 				8451077C23C60A5800D9E066 /* RegisterViewController.xib in Resources */,
 				8451077D23C60A5800D9E066 /* LoginViewController.xib in Resources */,
 				8451079023C61A9C00D9E066 /* TopicTableViewCell.xib in Resources */,
+				25E5735223C7046D0001C637 /* SentenceCell.xib in Resources */,
 				845107A023C6261C00D9E066 /* ListSentenceViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -470,6 +543,7 @@
 			files = (
 				8451078523C60A9100D9E066 /* UserAuthViewModel.swift in Sources */,
 				8451079423C61DD100D9E066 /* Topic.swift in Sources */,
+				25E5734D23C6EAB30001C637 /* Sentence.swift in Sources */,
 				8451077E23C60A5800D9E066 /* LoginViewController.swift in Sources */,
 				25E43E8723C5CF1D00D32420 /* ListTopicVC.swift in Sources */,
 				25E43E7723C5B8D600D32420 /* BaseViewXib.swift in Sources */,
@@ -479,14 +553,20 @@
 				8451078F23C61A9C00D9E066 /* TopicTableViewCell.swift in Sources */,
 				8451079223C61B2500D9E066 /* BaseTableViewController.swift in Sources */,
 				8451079823C6219B00D9E066 /* PopUpHelper.swift in Sources */,
+				25E5735623C70BE80001C637 /* ListAnswearVC.swift in Sources */,
+				25E5734B23C6DD620001C637 /* FirebaseTranslate.swift in Sources */,
 				25E43E9B23C5D5F100D32420 /* InfoVC.swift in Sources */,
+				25E5734923C6D0BB0001C637 /* Delegate.swift in Sources */,
 				8451078223C60A8200D9E066 /* User.swift in Sources */,
+				25E5735A23C71A170001C637 /* UIImageView + Extension.swift in Sources */,
+				25E5735123C7046D0001C637 /* SentenceCell.swift in Sources */,
 				253397CB23C5AF0B005A8B0C /* AppDelegate.swift in Sources */,
 				25E43E7023C5B85800D32420 /* String+Extention.swift in Sources */,
 				8451078923C60AC500D9E066 /* Firebase.swift in Sources */,
 				8451079B23C625C500D9E066 /* BaseTableViewCell.swift in Sources */,
 				25E43E6E23C5B85800D32420 /* UIView+Extention.swift in Sources */,
 				8451079F23C6261C00D9E066 /* ListSentenceViewController.swift in Sources */,
+				25E5735E23C71BD90001C637 /* AnswearCell.swift in Sources */,
 				25E43E9123C5CF7600D32420 /* ListSpeakVC.swift in Sources */,
 				8451077F23C60A5800D9E066 /* RegisterViewController.swift in Sources */,
 				25E43E8C23C5CF4E00D32420 /* ListListenVC.swift in Sources */,

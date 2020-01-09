@@ -1,16 +1,16 @@
 //
-//  TopicTableViewCell.swift
+//  SentenceCell.swift
 //  Translate
 //
-//  Created by admin on 08/01/2020.
+//  Created by Sang on 1/9/20.
 //  Copyright © 2020 SangNX. All rights reserved.
 //
 
 import UIKit
 
-class TopicTableViewCell: BaseTableViewCell {
-
+class SentenceCell: UITableViewCell {
     @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var lblDetail: UILabel!
     
     private lazy var index: IndexPath! = nil
     weak var delegate: BaseCellDelegate?
@@ -23,12 +23,13 @@ class TopicTableViewCell: BaseTableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setupCell(index: IndexPath, text: String) {
-        lblTitle.text = text
+    func setupCell(_ index: IndexPath, item: Sentence) {
         self.index = index
+        lblTitle.text = item.vnese
+        lblDetail.text = item.english
     }
     
     @IBAction func onTapCell(_ sender: Any) {
-        self.delegate?.onTapCell(self.index)
+        delegate?.onTapCell(self.index)
     }
 }

@@ -20,12 +20,27 @@ struct Constant {
     static let HEIGTH_TABBAR: CGFloat = 70 + STATUS_BAR_BOTTOM
 }
 
-let kEmpty = ""
+//Mark: Title Controllers
+let TITLE_LIST_TOPIC   = "DANH SÁCH CHỦ ĐỀ"
+let TITLE_LIST_SAYING  = "DANH SÁCH CÂU THOẠI"
+let TITLE_LIST_QUETION = "CÂU HỎI"
 
+//Mark: Firebase KEY
+let TOPIC                   = "Topics"
+let SENTENCES               = "Sentences"
+let ANSWEARS                = "Answears"
+let TITLE                   = "title"
+let ID                      = "id"
+let USER                    = "Users"
+let NAME                    = "name"
+let EMAIL                   = "email"
+let ENGLISH                 = "english"
+let VNESE                   = "vnese"
 
-let TOPIC = "Topics"
-let TITLE = "title"
-let ID    = "id"
-let USER  = "Users"
-let NAME  = "name"
-let EMAIL = "email"
+//Mark: String
+let kEmpty                  = ""
+let kTopic                  = "Chủ đề"
+let kImportNameTopic        = "Nhập vào tên của chủ đề"
+let kNewSentence            = "Câu thoại"
+let kImportDetailSentence   = "Nhập vào nội dung câu thoại"
+let kOK                     = "OK"

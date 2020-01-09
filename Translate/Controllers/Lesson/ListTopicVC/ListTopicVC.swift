@@ -13,26 +13,8 @@ class ListTopicVC: BaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setTitle(title: "DANH SÁCH CHỦ ĐỀ")
+        self.setTitle(title: TITLE_LIST_TOPIC)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAddNewTopic))
-    }
-    
-    func test() {
-        let options = TranslatorOptions(sourceLanguage: .vi, targetLanguage: .en)
-        let englishGermanTranslator = NaturalLanguage.naturalLanguage().translator(options: options)
-        let conditions = ModelDownloadConditions(
-            allowsCellularAccess: false,
-            allowsBackgroundDownloading: true
-        )
-        englishGermanTranslator.downloadModelIfNeeded(with: conditions) { error in
-            guard error == nil else { return }
-            // Model downloaded successfully. Okay to start translating.
-            englishGermanTranslator.translate("tôi tên là") { translatedText, error in
-                guard error == nil, let translatedText = translatedText else { return }
-                // Translation succeeded.
-                print(translatedText)
-            }
-        }
     }
     
     override func registerCell() {
@@ -50,20 +32,29 @@ class ListTopicVC: BaseTableViewController {
     
     override func cellForRowAt(item: Any, for indexPath: IndexPath, tableView: UITableView) -> UITableViewCell {
         let cell = tableView.dequeue(TopicTableViewCell.self, for: indexPath)
-        cell.lblTitle.text = (item as! Topic).title
+        cell.setupCell(index: indexPath, text: (item as! Topic).title)
+        cell.delegate = self
         return cell
     }
     
-    override func didSelectRowAt(selectedItem: Any, indexPath: IndexPath) {
-        let listSentenceVC = ListSentenceViewController()
-        listSentenceVC.topic = selectedItem as? Topic
-        self.push(controller: listSentenceVC)
+    override func editCell(item: Any, indexPath: IndexPath, type: UITableViewCell.EditingStyle) {
+        if(type == .delete) {
+            Firebase.shared.deleteTopic((item as! Topic).id)
+        }
     }
     
     @objc func didTapAddNewTopic() {
-        PopUpHelper.shared.showAlertWithTextField(self, "Chủ đề", "Nhập vào tên của chủ đề") { (text) in
+        PopUpHelper.shared.showAlertWithTextField(self, kTopic, kImportNameTopic) { (text) in
             Firebase.shared.createTopic(text)
         }
     }
-
 }
+
+extension ListTopicVC: BaseCellDelegate {
+    func onTapCell(_ index: IndexPath) {
+        let listSentenceVC = ListSentenceViewController()
+        listSentenceVC.topic = listItem[index.row] as? Topic
+        self.push(controller: listSentenceVC)
+    }
+}
+

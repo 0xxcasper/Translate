@@ -62,6 +62,10 @@ class BaseTableViewController: BaseViewController {
         */
     }
     
+    func editCell(item: Any, indexPath: IndexPath, type: UITableViewCell.EditingStyle) {
+        
+    }
+    
     func setHeightForRow() -> CGFloat {
         let height: CGFloat = UITableView.automaticDimension
         return height
@@ -76,6 +80,10 @@ extension BaseTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         didSelectRowAt(selectedItem: listItem[indexPath.row], indexPath: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        editCell(item: listItem[indexPath.row], indexPath: indexPath, type: editingStyle)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

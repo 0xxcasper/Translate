@@ -76,7 +76,13 @@ extension String {
         return date
     }
     
-    
+    func configAVSpeechUtterance() -> AVSpeechUtterance {
+        let utterance = AVSpeechUtterance(string: self)
+        utterance.voice = AVSpeechSynthesisVoice(identifier: "com.apple.ttsbundle.siri_male_en-GB_compact")
+//        utterance.rate = rate
+//        utterance.pitchMultiplier = pitch
+        return utterance
+    }
 }
 
 extension DateFormatter

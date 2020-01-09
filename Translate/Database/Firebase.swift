@@ -13,7 +13,6 @@ import FirebaseDatabase
 import SVProgressHUD
 
 struct Firebase {
-    
     static let shared = Firebase()
     
     //MARK: - Authen
@@ -101,6 +100,156 @@ struct Firebase {
             if (error != nil) {
                 SVProgressHUD.showError(withStatus: error?.localizedDescription)
             }
+        }
+    }
+    
+    func createSentence(_ text: String, _ id: String, isVN: Bool = true) {
+        SVProgressHUD.show()
+        FirebaseTranslate.shared.translateLanguage(text: text, isVN: isVN,  completion: { (reponse) in
+            guard let currentId = Auth.auth().currentUser?.uid else { return }
+            let ref = Database.database().reference().child(SENTENCES).child(currentId).child(id).childByAutoId()
+            let value = [ENGLISH: reponse, VNESE: text, ID: ref.key ?? kEmpty]
+            ref.updateChildValues(value) { (error, data) in
+                SVProgressHUD.dismiss()
+                if (error != nil) {
+                    SVProgressHUD.showError(withStatus: error?.localizedDescription)
+                }
+            }
+        }) { (error) in
+            SVProgressHUD.dismiss()
+            SVProgressHUD.showError(withStatus: error)
+        }
+    }
+    
+    func getAllSentence(_ id: String, _ completion: @escaping (([Sentence]?)->())) {
+        SVProgressHUD.show()
+        guard let currentId = Auth.auth().currentUser?.uid else { return }
+        
+        let ref = Database.database().reference().child(SENTENCES).child(currentId).child(id)
+        ref.observe(.value) { (DataSnapshot) in
+            SVProgressHUD.dismiss()
+            if let data = DataSnapshot.value as? [String:AnyObject] {
+                var sentences = [Sentence]()
+                Array(data.values).forEach({ (Obj) in
+                    let topic = Sentence(Obj as! [String : AnyObject])
+                    sentences.append(topic)
+                })
+                completion(sentences)
+            } else {
+                completion(nil)
+            }
+        }
+    }
+    
+    func getAllAnswears(_ idParent: String, _ idChild: String, _ completion: @escaping (([Sentence]?)->())) {
+        SVProgressHUD.show()
+        guard let currentId = Auth.auth().currentUser?.uid else { return }
+        let ref = Database.database().reference().child(ANSWEARS).child(currentId).child(idParent).child(idChild)
+        ref.observe(.value) { (DataSnapshot) in
+            SVProgressHUD.dismiss()
+            if let data = DataSnapshot.value as? [String:AnyObject] {
+                var sentences = [Sentence]()
+                Array(data.values).forEach({ (Obj) in
+                    let topic = Sentence(Obj as! [String : AnyObject])
+                    sentences.append(topic)
+                })
+                completion(sentences)
+            } else {
+                completion(nil)
+            }
+        }
+    }
+    
+    func createAnswear(_ text: String, _ idParent: String, _ idChild: String, isVN: Bool = true) {
+        SVProgressHUD.show()
+        FirebaseTranslate.shared.translateLanguage(text: text, isVN: isVN,  completion: { (reponse) in
+            guard let currentId = Auth.auth().currentUser?.uid else { return }
+            let ref = Database.database().reference().child(ANSWEARS).child(currentId).child(idParent).child(idChild).childByAutoId()
+            let value = [ENGLISH: reponse, VNESE: text, ID: ref.key ?? kEmpty]
+            ref.updateChildValues(value) { (error, data) in
+                SVProgressHUD.dismiss()
+                if (error != nil) {
+                    SVProgressHUD.showError(withStatus: error?.localizedDescription)
+                }
+            }
+        }) { (error) in
+            SVProgressHUD.dismiss()
+            SVProgressHUD.showError(withStatus: error)
+        }
+    }
+    
+    func deleteAnswear(_ idParent: String, _ idChild: String, _ idItem: String) {
+        SVProgressHUD.show()
+        guard let currentId = Auth.auth().currentUser?.uid else { return }
+        let ref = Database.database().reference().child(ANSWEARS).child(currentId).child(idParent).child(idChild).child(idItem)
+        ref.removeValue { error, _ in
+            SVProgressHUD.dismiss()
+            if (error != nil) {
+                SVProgressHUD.showError(withStatus: error?.localizedDescription)
+            }
+        }
+    }
+    
+    func deleteSentence(_ idParent: String, _ idChild: String) {
+        SVProgressHUD.show()
+        let dispatchGroup = DispatchGroup()
+        dispatchGroup.enter()
+        dispatchGroup.enter()
+        guard let currentId = Auth.auth().currentUser?.uid else { return }
+        let refANSWEARS = Database.database().reference().child(ANSWEARS).child(currentId).child(idParent).child(idChild)
+        let refSENTENCES = Database.database().reference().child(SENTENCES).child(currentId).child(idParent).child(idChild)
+        refANSWEARS.removeValue { error, _ in
+            dispatchGroup.leave()
+            if (error != nil) {
+                SVProgressHUD.showError(withStatus: error?.localizedDescription)
+            }
+        }
+        
+        refSENTENCES.removeValue { error, _ in
+            dispatchGroup.leave()
+            if (error != nil) {
+                SVProgressHUD.showError(withStatus: error?.localizedDescription)
+            }
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            SVProgressHUD.dismiss()
+        }
+    }
+    
+    func deleteTopic(_ id: String) {
+        SVProgressHUD.show()
+        let dispatchGroup = DispatchGroup()
+        dispatchGroup.enter()
+        dispatchGroup.enter()
+        dispatchGroup.enter()
+        guard let currentId = Auth.auth().currentUser?.uid else { return }
+        let refTOPIC = Database.database().reference().child(TOPIC).child(currentId).child(id)
+        let refANSWEARS = Database.database().reference().child(ANSWEARS).child(currentId).child(id)
+        let refSENTENCES = Database.database().reference().child(SENTENCES).child(currentId).child(id)
+        
+        refTOPIC.removeValue { error, _ in
+            dispatchGroup.leave()
+            if (error != nil) {
+                SVProgressHUD.showError(withStatus: error?.localizedDescription)
+            }
+        }
+        refANSWEARS.removeValue { error, _ in
+            dispatchGroup.leave()
+            if (error != nil) {
+                SVProgressHUD.showError(withStatus: error?.localizedDescription)
+            }
+        }
+        
+        refSENTENCES.removeValue { error, _ in
+            dispatchGroup.leave()
+            if (error != nil) {
+                SVProgressHUD.showError(withStatus: error?.localizedDescription)
+            }
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            SVProgressHUD.dismiss()
         }
     }
 }
