@@ -32,8 +32,8 @@ struct Firebase {
         Auth.auth().createUser(withEmail: email, password: pass) { (Result, Error) in
             if (Error == nil) {
                 guard let uid = Result?.user.uid else { return }
-                let values = ["id":uid,"name":name,"email":email]
-                let ref = Database.database().reference().child("Users").child(uid)
+                let values = [ID:uid, NAME: name,EMAIL:email]
+                let ref = Database.database().reference().child(USER).child(uid)
                 ref.updateChildValues(values, withCompletionBlock: { (Error, Database) in
                     if (Error == nil) {
                         completion(true)
@@ -58,7 +58,7 @@ struct Firebase {
     
     func getDataUser(_ completion: @escaping ((User?)->())) {
         guard let currentId = Auth.auth().currentUser?.uid else { return }
-        let ref = Database.database().reference().child("Users").child(currentId)
+        let ref = Database.database().reference().child(USER).child(currentId)
         ref.observeSingleEvent(of: .value) { (DataSnapshot) in
             if let data = DataSnapshot.value as? [String:AnyObject] {
                 let user = User(data)
@@ -75,7 +75,7 @@ struct Firebase {
         SVProgressHUD.show()
         guard let currentId = Auth.auth().currentUser?.uid else { return }
         
-        let ref = Database.database().reference().child("Topics").child(currentId)
+        let ref = Database.database().reference().child(TOPIC).child(currentId)
         ref.observe(.value) { (DataSnapshot) in
             SVProgressHUD.dismiss()
             if let data = DataSnapshot.value as? [String:AnyObject] {
@@ -94,8 +94,8 @@ struct Firebase {
     func createTopic(_ title: String) {
         SVProgressHUD.show()
         guard let currentId = Auth.auth().currentUser?.uid else { return }
-        let ref = Database.database().reference().child("Topics").child(currentId).childByAutoId()
-        let value = ["title": title, "id": ref.key ?? ""]
+        let ref = Database.database().reference().child(TOPIC).child(currentId).childByAutoId()
+        let value = [TITLE: title, ID: ref.key ?? kEmpty]
         ref.updateChildValues(value) { (error, data) in
             SVProgressHUD.dismiss()
             if (error != nil) {

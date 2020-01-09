@@ -19,3 +19,13 @@ struct Constant {
     static let TAB_BAR_HEIGHT = CGFloat(49)
     static let HEIGTH_TABBAR: CGFloat = 70 + STATUS_BAR_BOTTOM
 }
+
+let kEmpty = ""
+
+
+let TOPIC = "Topics"
+let TITLE = "title"
+let ID    = "id"
+let USER  = "Users"
+let NAME  = "name"
+let EMAIL = "email"

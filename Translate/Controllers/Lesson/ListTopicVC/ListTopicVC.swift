@@ -15,7 +15,6 @@ class ListTopicVC: BaseTableViewController {
         super.viewDidLoad()
         self.setTitle(title: "DANH SÁCH CHỦ ĐỀ")
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAddNewTopic))
-//        test()
     }
     
     func test() {
