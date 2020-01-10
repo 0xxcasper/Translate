@@ -73,15 +73,16 @@ struct Firebase {
     func getAllTopic(_ completion: @escaping (([Topic])->())) {
         SVProgressHUD.show()
         guard let currentId = Auth.auth().currentUser?.uid else { return }
-        
+        var topics = [Topic]()
         let ref = Database.database().reference().child(TOPIC).child(currentId)
         ref.observe(.value) { (DataSnapshot) in
             SVProgressHUD.dismiss()
             if let data = DataSnapshot.value as? [String:AnyObject] {
-                var topics = [Topic]()
                 Array(data.values).forEach({ (Obj) in
                     let topic = Topic(Obj as! [String : AnyObject])
-                    topics.append(topic)
+                    if !topics.contains(where: { $0.id == topic.id }) {
+                        topics.append(topic)
+                    }
                 })
                 completion(topics)
             } else {

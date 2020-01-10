@@ -24,6 +24,9 @@ struct Constant {
 let TITLE_LIST_TOPIC   = "DANH SÁCH CHỦ ĐỀ"
 let TITLE_LIST_SAYING  = "DANH SÁCH CÂU THOẠI"
 let TITLE_LIST_QUETION = "CÂU HỎI"
+let TITLE_CHOOSE_TOPIC = "CHỌN CHỦ ĐỀ"
+let TITLE_TRAIN_SPEAK  = "LUYỆN TẬP NÓI"
+
 
 //Mark: Firebase KEY
 let TOPIC                   = "Topics"

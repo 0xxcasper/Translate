@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -32,9 +32,26 @@
                             <action selector="onTapCell:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="oZb-Lo-ICF"/>
                         </connections>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTx-uX-UL9">
+                        <rect key="frame" x="284" y="15" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="6iD-Zi-Pbk"/>
+                            <constraint firstAttribute="width" constant="20" id="hVL-3V-1l2"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="onTapCheckBox:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Zp7-BZ-and"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="QPI-es-bMh" secondAttribute="trailing" id="56G-g3-qKX"/>
+                    <constraint firstItem="vTx-uX-UL9" firstAttribute="centerY" secondItem="QPI-es-bMh" secondAttribute="centerY" id="5dc-rd-KwP"/>
+                    <constraint firstAttribute="trailing" secondItem="vTx-uX-UL9" secondAttribute="trailing" constant="16" id="7ha-VK-8WH"/>
                     <constraint firstItem="QPI-es-bMh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Gdg-QU-8AD"/>
                     <constraint firstAttribute="bottom" secondItem="QPI-es-bMh" secondAttribute="bottom" id="RZ0-N1-SgE"/>
                     <constraint firstAttribute="trailing" secondItem="bxi-Bh-wzs" secondAttribute="trailing" constant="16" id="UeQ-tV-dKY"/>
@@ -46,6 +63,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="btnCheckBox" destination="vTx-uX-UL9" id="UNq-O7-rOL"/>
                 <outlet property="lblTitle" destination="bxi-Bh-wzs" id="jIc-VW-oQJ"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="144.64285714285714"/>

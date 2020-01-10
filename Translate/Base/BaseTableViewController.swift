@@ -70,6 +70,10 @@ class BaseTableViewController: BaseViewController {
         let height: CGFloat = UITableView.automaticDimension
         return height
     }
+    
+    func canEditRow() -> Bool {
+        return true
+    }
 }
 
 // MARK: - Table view delegate
@@ -80,6 +84,10 @@ extension BaseTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         didSelectRowAt(selectedItem: listItem[indexPath.row], indexPath: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return canEditRow()
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

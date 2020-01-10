@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared().isEnabled = true
         SVProgressHUD.setDefaultMaskType(.clear)
         SVProgressHUD.setDefaultStyle(.dark)
+        SVProgressHUD.setMaximumDismissTimeInterval(1)
         FirebaseApp.configure()
         
         window = UIWindow(frame: UIScreen.main.bounds)

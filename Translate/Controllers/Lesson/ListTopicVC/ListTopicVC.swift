@@ -32,6 +32,7 @@ class ListTopicVC: BaseTableViewController {
     override func cellForRowAt(item: Any, for indexPath: IndexPath, tableView: UITableView) -> UITableViewCell {
         let cell = tableView.dequeue(TopicTableViewCell.self, for: indexPath)
         cell.setupCell(index: indexPath, text: (item as! Topic).title)
+        cell.btnCheckBox.isHidden = true
         cell.delegate = self
         return cell
     }

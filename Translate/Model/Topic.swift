@@ -9,10 +9,11 @@
 import Foundation
 import UIKit
 
-struct Topic {
+class Topic {
     
     var id:String!
     var title:String!
+    var isSelect: Bool! = false
     
     init(_ data: [String:AnyObject]) {
         id = data["id"] as? String
