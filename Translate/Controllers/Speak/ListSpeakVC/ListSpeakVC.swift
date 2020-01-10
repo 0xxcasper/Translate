@@ -17,6 +17,11 @@ class ListSpeakVC: BaseTableViewController {
         self.setTitle(title: TITLE_CHOOSE_TOPIC)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        showTabbar()
+    }
+    
     override func registerCell() {
         super.registerCell()
         myTableView.registerXibFile(TopicTableViewCell.self)
@@ -45,10 +50,10 @@ class ListSpeakVC: BaseTableViewController {
         let topicsSelected = (self.listItem as! [Topic]).filter({ $0.isSelect == true })
         if topicsSelected.count > 0 {
             let trainSpkVC = TrainSpeakViewController()
-            trainSpkVC.topics = topicsSelected
+            trainSpkVC.topic = topicsSelected
             self.push(controller: trainSpkVC)
         } else {
-            SVProgressHUD.showInfo(withStatus: "Xin hãy chọn chủ đề để luyện nghe")
+            SVProgressHUD.showInfo(withStatus: "Xin hãy chọn chủ đề để luyện nói")
         }
     }
 }

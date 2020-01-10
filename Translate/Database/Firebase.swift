@@ -68,16 +68,37 @@ struct Firebase {
         }
     }
     
+    //MARK: - Infor
+    func getNumberOfAnswerRight(_ completion: @escaping ((Int)->())){
+        guard let currentId = Auth.auth().currentUser?.uid else { return }
+        let ref = Database.database().reference().child(INFOR).child(currentId)
+        ref.observe(.value) { (DataSnapshot) in
+            if let data = DataSnapshot.value as? [String:AnyObject] {
+                let infor = data["numRight"] as? Int
+                completion(infor ?? 0)
+            } else {
+                completion(0)
+            }
+        }
+    }
+    
+    func updateNumberOfAnswerRight(_ number: Int) {
+        guard let currentId = Auth.auth().currentUser?.uid else { return }
+        let ref = Database.database().reference().child(INFOR).child(currentId)
+        let value = ["numRight": number]
+        ref.updateChildValues(value)
+    }
+    
     //MARK: - Topic
     
     func getAllTopic(_ completion: @escaping (([Topic])->())) {
         SVProgressHUD.show()
         guard let currentId = Auth.auth().currentUser?.uid else { return }
-        var topics = [Topic]()
         let ref = Database.database().reference().child(TOPIC).child(currentId)
         ref.observe(.value) { (DataSnapshot) in
             SVProgressHUD.dismiss()
             if let data = DataSnapshot.value as? [String:AnyObject] {
+                var topics = [Topic]()
                 Array(data.values).forEach({ (Obj) in
                     let topic = Topic(Obj as! [String : AnyObject])
                     if !topics.contains(where: { $0.id == topic.id }) {
@@ -154,6 +175,40 @@ struct Firebase {
             } else {
                 completion([])
             }
+        }
+    }
+    
+    func getAllAnswearsSpeak(_ topics: [Topic], _ completion: @escaping (([Sentence])->())) {
+        var arrIdTopic = [String]()
+        topics.forEach { (topic) in
+            arrIdTopic.append(topic.id)
+        }
+        
+        SVProgressHUD.show()
+        let dispatchGroup = DispatchGroup()
+        var sentences = [Sentence]()
+        arrIdTopic.forEach { idTopic in
+            dispatchGroup.enter()
+            let ref = Database.database().reference().child(ANSWEARS).child(idTopic)
+            ref.observeSingleEvent(of: .value, with: { (DataSnapshot) in
+                dispatchGroup.leave()
+                if let dataSnap = DataSnapshot.value as? [String:AnyObject]{
+                    Array(dataSnap.values).forEach({ (Obj) in
+                        guard let obj = Obj as? [String: AnyObject] else { return }
+                        Array(obj.values).forEach({ (sentence) in
+                            let topic = Sentence(sentence as! [String : AnyObject])
+                            sentences.append(topic)
+                        })
+                    })
+                    completion(sentences)
+                } else {
+                    completion(sentences)
+                }
+            })
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            SVProgressHUD.dismiss()
         }
     }
     

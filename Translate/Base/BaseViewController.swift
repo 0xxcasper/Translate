@@ -30,7 +30,6 @@ class BaseViewController : UIViewController {
     }
     
     func push(controller: UIViewController, animated: Bool = true) {
-        controller.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(controller, animated: animated)
     }
 

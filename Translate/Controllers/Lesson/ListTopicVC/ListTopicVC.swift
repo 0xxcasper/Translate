@@ -17,6 +17,11 @@ class ListTopicVC: BaseTableViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAddNewTopic))
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        showTabbar()
+    }
+    
     override func registerCell() {
         super.registerCell()
         myTableView.registerXibFile(TopicTableViewCell.self)

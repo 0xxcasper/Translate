@@ -17,6 +17,11 @@ class ListSentenceViewController: BaseTableViewController {
         self.setupView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        hideTabbar()
+    }
+    
     private func setupView() {
         self.setTitle(title: TITLE_LIST_SAYING)
     }

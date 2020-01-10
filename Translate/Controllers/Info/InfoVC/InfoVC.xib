@@ -10,6 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InfoVC" customModule="Translate" customModuleProvider="target">
             <connections>
+                <outlet property="lblNumRight" destination="MLu-iN-kld" id="McS-4H-fkF"/>
+                <outlet property="lblNumSentence" destination="1Be-Cq-Szc" id="hFH-3g-RZg"/>
+                <outlet property="lblNumTopic" destination="z2d-Rd-LcL" id="h6k-1e-uiN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,16 +21,45 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9j-tE-rmK">
-                    <rect key="frame" x="177" y="388" width="60" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9j-tE-rmK">
+                    <rect key="frame" x="177" y="243.5" width="60" height="30"/>
                     <state key="normal" title="Sign Out"/>
                     <connections>
                         <action selector="didTapSignOut:" destination="-1" eventType="touchUpInside" id="hId-Qu-tUP"/>
                     </connections>
                 </button>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="tzn-tO-dqU">
+                    <rect key="frame" x="20" y="64" width="374" height="129.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tổng số chủ đề:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z2d-Rd-LcL">
+                            <rect key="frame" x="0.0" y="0.0" width="122" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tổng số câu thoại:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Be-Cq-Szc">
+                            <rect key="frame" x="0.0" y="54.5" width="140" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;Số câu đã thực hành đúng:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLu-iN-kld">
+                            <rect key="frame" x="0.0" y="109" width="212.5" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="e9j-tE-rmK" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="6BO-JE-5Xr"/>
+                <constraint firstItem="tzn-tO-dqU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="F4W-X8-IPN"/>
+                <constraint firstItem="tzn-tO-dqU" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="Yzn-G0-nMf"/>
+                <constraint firstItem="tzn-tO-dqU" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="hpp-9m-08D"/>
+                <constraint firstItem="e9j-tE-rmK" firstAttribute="top" secondItem="tzn-tO-dqU" secondAttribute="bottom" constant="50" id="kdv-jb-see"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="139" y="145"/>
         </view>
