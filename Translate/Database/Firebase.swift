@@ -223,7 +223,6 @@ struct Firebase {
         var sentenceAnswers = [Sentence:[Sentence]]()
 
         arrIdTopic.forEach { idTopic in
-            dispatchGroup.enter()
             let ref = Database.database().reference().child(SENTENCES).child(idTopic)
             ref.observeSingleEvent(of: .value, with: { (DataSnapshot) in
                 if let dataSnap = DataSnapshot.value as? [String:AnyObject] {
@@ -234,6 +233,7 @@ struct Firebase {
                     })
                     
                     sentences.forEach { sentence in
+                        dispatchGroup.enter()
                         let refA = Database.database().reference().child(ANSWEARS).child(idTopic).child(sentence.id)
                         refA.observeSingleEvent(of: .value) { (Data) in
                             if let data = Data.value as? [String:AnyObject] {
@@ -248,6 +248,10 @@ struct Firebase {
                             
                         }
                     }
+                    dispatchGroup.notify(queue: .main) {
+                        completion(sentenceAnswers)
+                        SVProgressHUD.dismiss()
+                    }
                     
                 } else {
                     completion(sentenceAnswers)
@@ -255,10 +259,7 @@ struct Firebase {
                 }
             })
         }
-        dispatchGroup.notify(queue: .main) {
-            completion(sentenceAnswers)
-            SVProgressHUD.dismiss()
-        }
+        
     }
     
     
