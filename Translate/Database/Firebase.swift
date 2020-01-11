@@ -242,17 +242,19 @@ struct Firebase {
                                     let answer = Sentence(Obj as! [String : AnyObject])
                                     answers.append(answer)
                                 })
-                                sentenceAnswers.updateValue(answers, forKey: sentence)
+                                if answers.count > 0 {
+                                    sentenceAnswers.updateValue(answers, forKey: sentence)
+                                }
                                 dispatchGroup.leave()
+                            } else {
+                               dispatchGroup.leave()
                             }
-                            
                         }
                     }
                     dispatchGroup.notify(queue: .main) {
                         completion(sentenceAnswers)
                         SVProgressHUD.dismiss()
                     }
-                    
                 } else {
                     completion(sentenceAnswers)
                     SVProgressHUD.dismiss()

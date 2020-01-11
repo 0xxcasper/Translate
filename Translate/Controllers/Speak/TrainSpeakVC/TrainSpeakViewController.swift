@@ -18,7 +18,7 @@ class TrainSpeakViewController: BaseViewController {
     @IBOutlet weak var btnRecord: UIButton!
     
     private var speechRecognizer        = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))
-    private var recognitionRequest      : SFSpeechAudioBufferRecognitionRequest?
+    private var recognitionRequest      = SFSpeechAudioBufferRecognitionRequest()
     private var recognitionTask         : SFSpeechRecognitionTask?
     private var audioEngine             = AVAudioEngine()
     
@@ -50,6 +50,7 @@ class TrainSpeakViewController: BaseViewController {
         super.viewDidLoad()
         self.setTitle(title: TITLE_TRAIN_SPEAK)
         self.txView.isEditable = false
+        
         self.setupSpeech()
         self.getNumberOfAnswerRight()
         self.getAllSentenceAndAnswer()
@@ -109,57 +110,11 @@ class TrainSpeakViewController: BaseViewController {
     }
     
     private func startRecording() {
-        if recognitionTask != nil {
-            recognitionTask?.cancel()
-            recognitionTask = nil
-        }
-        let audioSession = AVAudioSession.sharedInstance()
-        do {
-            try audioSession.setCategory(AVAudioSession.Category.record, mode: AVAudioSession.Mode.measurement, options: AVAudioSession.CategoryOptions.defaultToSpeaker)
-            try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
-        } catch {
-            print("audioSession properties weren't set because of an error.")
-        }
-
-        self.recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
-
-        let inputNode = audioEngine.inputNode
-
-        guard let recognitionRequest = recognitionRequest else {
-            fatalError("Unable to create an SFSpeechAudioBufferRecognitionRequest object")
-        }
-        recognitionRequest.shouldReportPartialResults = true
-
-        self.speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))
-        self.recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest, resultHandler: { (result, error) in
-//            var isFinal = false
-            if result != nil {
-                self.txView.text = result?.bestTranscription.formattedString
-                if let text = self.txView.text {
-                    let result: ComparisonResult = text.compare(self.currentAnswer?.english ?? "", options: String.CompareOptions.caseInsensitive, range: nil, locale: nil)
-                    if result == .orderedSame {
-                        self.txView.text = ""
-                        self.nextAnswer()
-                    } else {
-                        self.txView.text = ""
-                        SVProgressHUD.showError(withStatus: "Kết quả thì sai")
-                    }
-                }
-//                isFinal = (result?.isFinal)!
-            }
-            if error != nil {
-                self.audioEngine.stop()
-                inputNode.removeTap(onBus: 0)
-
-                self.recognitionRequest = nil
-                self.recognitionTask = nil
-                self.btnRecord.isEnabled = true
-            }
-        })
-
+        
+        let inputNode = self.audioEngine.inputNode
         let recordingFormat = inputNode.outputFormat(forBus: 0)
         inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer, when) in
-            self.recognitionRequest?.append(buffer)
+            self.recognitionRequest.append(buffer)
         }
 
         self.audioEngine.prepare()
@@ -171,6 +126,34 @@ class TrainSpeakViewController: BaseViewController {
         }
         
         self.txView.text = "Say something, I'm listening!"
+        
+        
+        self.recognitionRequest.shouldReportPartialResults = true
+
+        self.speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))
+        self.recognitionTask = speechRecognizer?.recognitionTask(with: self.recognitionRequest, resultHandler: { (result, error) in
+//            var isFinal = false
+            if result != nil {
+                self.txView.text = result?.bestTranscription.formattedString
+                if let text = self.txView.text {
+                    let result: ComparisonResult = text.compare(self.currentAnswer?.english ?? "", options: String.CompareOptions.caseInsensitive, range: nil, locale: nil)
+                    if result == .orderedSame {
+                        self.txView.text = ""
+                        self.nextAnswer()
+                    } else {
+                        SVProgressHUD.showError(withStatus: "Kết quả thì sai")
+                    }
+                }
+//                isFinal = (result?.isFinal)!
+            }
+            if error != nil {
+                self.audioEngine.stop()
+                inputNode.removeTap(onBus: 0)
+
+                self.recognitionTask?.cancel()
+                self.btnRecord.isEnabled = true
+            }
+        })
     }
     
     private func nextAnswer() {
@@ -200,17 +183,20 @@ extension TrainSpeakViewController
     @IBAction func didTapStartPlayOrPauseRecord(_ sender: UIButton) {
         //nextAnswer()
         if audioEngine.isRunning {
-            self.audioEngine.pause()
-//            self.recognitionRequest?.endAudio()
-//            self.audioEngine.inputNode.removeTap(onBus: 0)
+//            self.recognitionRequest.endAudio()
+            self.audioEngine.stop()
+            self.audioEngine.inputNode.removeTap(onBus: 0)
+            self.recognitionTask?.cancel()
+
             self.btnRecord.setTitle("Start Recording", for: .normal)
         } else {
-            if noFirst {
-                try! self.audioEngine.start()
-            } else {
-                self.startRecording()
-                noFirst = true
-            }
+//            if noFirst {
+//                try! self.audioEngine.start()
+//            } else {
+//                self.startRecording()
+//                noFirst = true
+//            }
+            self.startRecording()
             self.btnRecord.setTitle("Stop Recording", for: .normal)
         }
     }
