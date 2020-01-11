@@ -164,7 +164,6 @@ class TrainSpeakViewController: BaseViewController {
     private func nextAnswer() {
         if self.answers.count - 1 > self.currentIndexAnswer {
             self.currentIndexAnswer += 1
-            Firebase.shared.updateNumberOfAnswerRight(self.numRight + 1)
         } else {
             if self.currentIndexSentence < self.sentences.count - 1 {
                 self.currentIndexSentence += 1
@@ -176,6 +175,7 @@ class TrainSpeakViewController: BaseViewController {
                 self.btnRecord.isEnabled = false
             }
         }
+        Firebase.shared.updateNumberOfAnswerRight(self.numRight + 1)
     }
 }
 
