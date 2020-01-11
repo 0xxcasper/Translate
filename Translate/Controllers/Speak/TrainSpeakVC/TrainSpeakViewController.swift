@@ -16,36 +16,43 @@ class TrainSpeakViewController: BaseViewController {
     @IBOutlet weak var lblAnwser: UILabel!
     @IBOutlet weak var txView: UITextView!
     @IBOutlet weak var btnRecord: UIButton!
-    @IBOutlet weak var lblCount: UILabel!
     
-    let speechRecognizer        = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))
-    var recognitionRequest      : SFSpeechAudioBufferRecognitionRequest?
-    var recognitionTask         : SFSpeechRecognitionTask?
-    var audioEngine             = AVAudioEngine()
+    private let speechRecognizer        = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))
+    private var recognitionRequest      : SFSpeechAudioBufferRecognitionRequest?
+    private var recognitionTask         : SFSpeechRecognitionTask?
+    private var audioEngine             = AVAudioEngine()
     
-    var topic: [Topic]!
     private let synthesizer = AVSpeechSynthesizer()
+    private var sentenceAnswers = [Sentence:[Sentence]]()
+    private var sentences = [Sentence]()
     private var answers = [Sentence]()
-    private var numRight = 0
     
-    private var currentIndex = 0 {
-        didSet {
-            self.lblCount.text = "\(currentIndex+1)/\(self.answers.count)"
-        }
-    }
+    private var numRight = 0
+    private var currentSentence: Sentence?
     private var currentAnswer: Sentence? {
         didSet {
             self.lblAnwser.text = currentAnswer?.english
         }
     }
-    
+    private var currentIndexAnswer = 0 {
+        didSet {
+            self.currentAnswer = self.answers[currentIndexAnswer]
+        }
+    }
+    private var currentIndexSentence = 0 {
+        didSet {
+            self.currentSentence = self.sentences[currentIndexSentence]
+        }
+    }
+    var topic: [Topic]!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setTitle(title: TITLE_TRAIN_SPEAK)
         self.txView.isEditable = false
         self.setupSpeech()
         self.getNumberOfAnswerRight()
-        self.getAllAnswer()
+        self.getAllSentenceAndAnswer()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,12 +60,14 @@ class TrainSpeakViewController: BaseViewController {
         hideTabbar()
     }
     
-    private func getAllAnswer() {
-        Firebase.shared.getAllAnswearsSpeak(topic) { (Answers) in
-            self.answers = Answers
-            if self.answers.count > 0 {
-                self.currentIndex = 0
-                self.currentAnswer = self.answers[self.currentIndex]
+    private func getAllSentenceAndAnswer() {
+        Firebase.shared.getAllSentencesAndAnswears(topic) { (sentenceAnswers) in
+            self.sentenceAnswers = sentenceAnswers
+            self.sentences = Array(sentenceAnswers.keys)
+            if self.sentences.count > 0 {
+                self.currentIndexSentence = 0
+                self.answers = self.sentenceAnswers[self.currentSentence!]!
+                self.currentIndexAnswer = 0
             } else {
                 self.btnRecord.isEnabled = false
             }
@@ -82,15 +91,15 @@ class TrainSpeakViewController: BaseViewController {
                 isButtonEnabled = true
             case .denied:
                 isButtonEnabled = false
-                SVProgressHUD.showSuccess(withStatus:"User denied access to speech recognition")
+                SVProgressHUD.showError(withStatus:"User denied access to speech recognition")
             case .restricted:
                 isButtonEnabled = false
-                SVProgressHUD.showSuccess(withStatus: "Speech recognition restricted on this device")
+                SVProgressHUD.showError(withStatus: "Speech recognition restricted on this device")
             case .notDetermined:
                 isButtonEnabled = false
-                SVProgressHUD.showSuccess(withStatus:"Speech recognition not yet authorized")
+                SVProgressHUD.showError(withStatus:"Speech recognition not yet authorized")
             @unknown default:
-                SVProgressHUD.showSuccess(withStatus: "Speech recognition not yet authorized")
+                SVProgressHUD.showError(withStatus: "Speech recognition not yet authorized")
             }
             OperationQueue.main.addOperation() {
                 self.btnRecord.isEnabled = isButtonEnabled
@@ -153,13 +162,18 @@ class TrainSpeakViewController: BaseViewController {
     }
     
     private func nextAnswer() {
-        if self.currentIndex < self.answers.count - 1 {
-            self.currentIndex += 1
-            self.currentAnswer = self.answers[currentIndex]
+        if self.answers.count - 1 > self.currentIndexAnswer {
+            self.currentIndexAnswer += 1
+            Firebase.shared.updateNumberOfAnswerRight(self.numRight + 1)
         } else {
-            if self.answers.count > 0 {
+            if self.currentIndexSentence < self.sentences.count - 1 {
+                self.currentIndexSentence += 1
+                self.answers = self.sentenceAnswers[self.currentSentence!]!
+                self.currentIndexAnswer = 0
+            } else {
                 SVProgressHUD.showSuccess(withStatus: "Bạn đã hoàn thành bài luyện nói")
                 Firebase.shared.updateNumberOfAnswerRight(self.numRight + 1)
+                self.btnRecord.isEnabled = false
             }
         }
     }
@@ -170,15 +184,22 @@ class TrainSpeakViewController: BaseViewController {
 extension TrainSpeakViewController
 {
     @IBAction func didTapStartPlayOrPauseRecord(_ sender: UIButton) {
-//        nextAnswer()
-        if audioEngine.isRunning {
-            self.audioEngine.stop()
-            self.recognitionRequest?.endAudio()
-            self.audioEngine.inputNode.removeTap(onBus: 0)
-            self.btnRecord.setTitle("Start Recording", for: .normal)
-        } else {
-            self.startRecording()
-            self.btnRecord.setTitle("Stop Recording", for: .normal)
+        nextAnswer()
+//        if audioEngine.isRunning {
+//            self.audioEngine.stop()
+//            self.recognitionRequest?.endAudio()
+//            self.audioEngine.inputNode.removeTap(onBus: 0)
+//            self.btnRecord.setTitle("Start Recording", for: .normal)
+//        } else {
+//            self.startRecording()
+//            self.btnRecord.setTitle("Stop Recording", for: .normal)
+//        }
+    }
+    
+    @IBAction func didTapPlaySentences(_ sender: UIButton) {
+        if let currentSentence = self.currentSentence {
+            let utterance = currentSentence.english.configAVSpeechUtterance()
+            synthesizer.speak(utterance)
         }
     }
     

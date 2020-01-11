@@ -212,6 +212,55 @@ struct Firebase {
         }
     }
     
+    func getAllSentencesAndAnswears(_ topics: [Topic], _ completion: @escaping (([Sentence:[Sentence]])->())) {
+        var arrIdTopic = [String]()
+        topics.forEach { (topic) in
+            arrIdTopic.append(topic.id)
+        }
+        
+        SVProgressHUD.show()
+        let dispatchGroup = DispatchGroup()
+        var sentenceAnswers = [Sentence:[Sentence]]()
+
+        arrIdTopic.forEach { idTopic in
+            dispatchGroup.enter()
+            let ref = Database.database().reference().child(SENTENCES).child(idTopic)
+            ref.observeSingleEvent(of: .value, with: { (DataSnapshot) in
+                if let dataSnap = DataSnapshot.value as? [String:AnyObject] {
+                    var sentences = [Sentence]()
+                    Array(dataSnap.values).forEach({ (Obj) in
+                        let sentence = Sentence(Obj as! [String : AnyObject])
+                        sentences.append(sentence)
+                    })
+                    
+                    sentences.forEach { sentence in
+                        let refA = Database.database().reference().child(ANSWEARS).child(idTopic).child(sentence.id)
+                        refA.observeSingleEvent(of: .value) { (Data) in
+                            if let data = Data.value as? [String:AnyObject] {
+                                var answers = [Sentence]()
+                                Array(data.values).forEach({ (Obj) in
+                                    let answer = Sentence(Obj as! [String : AnyObject])
+                                    answers.append(answer)
+                                })
+                                sentenceAnswers.updateValue(answers, forKey: sentence)
+                                dispatchGroup.leave()
+                            }
+                            
+                        }
+                    }
+                    
+                } else {
+                    SVProgressHUD.dismiss()
+                }
+            })
+        }
+        dispatchGroup.notify(queue: .main) {
+            completion(sentenceAnswers)
+            SVProgressHUD.dismiss()
+        }
+    }
+    
+    
     func createAnswear(_ text: String, _ idParent: String, _ idChild: String, isVN: Bool = true) {
         SVProgressHUD.show()
         FirebaseTranslate.shared.translateLanguage(text: text, isVN: isVN,  completion: { (reponse) in

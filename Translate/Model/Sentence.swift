@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Sentence {
+struct Sentence: Hashable {
     var id:String!
     var english:String!
     var vnese:String!
