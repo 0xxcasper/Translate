@@ -42,7 +42,14 @@ class TrainListenViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setTitle(title: TITLE_TRAIN_LISTEN)
+        self.getNumberOfAnswerRight()
         self.getAllSentenceAndAnswer()
+    }
+    
+    private func getNumberOfAnswerRight() {
+        Firebase.shared.getNumberOfAnswerRight { (num) in
+            self.numRight = num
+        }
     }
     
     private func getAllSentenceAndAnswer() {
