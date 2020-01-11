@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TrainListenViewController" customModule="Translate" customModuleProvider="target">
+            <connections>
+                <outlet property="btnCheck" destination="TWK-4q-jIa" id="Dn1-Te-KSm"/>
+                <outlet property="lblSentence" destination="br5-k2-XcH" id="E6Y-HP-bEe"/>
+                <outlet property="txfAnwser" destination="3Vg-5N-ae7" id="auQ-6J-4qr"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSJ-qi-MSl">
+                    <rect key="frame" x="369" y="61.5" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="QEv-gb-VdE"/>
+                        <constraint firstAttribute="width" constant="25" id="yvd-ke-DPF"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="ic_speak"/>
+                    <connections>
+                        <action selector="didTapPlaySentence:" destination="-1" eventType="touchUpInside" id="8O1-59-hXz"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="br5-k2-XcH">
+                    <rect key="frame" x="20" y="74" width="341" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your anwer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Vg-5N-ae7">
+                    <rect key="frame" x="20" y="104" width="341" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rNv-vi-FgL">
+                    <rect key="frame" x="369" y="108.5" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="HxT-9h-QRA"/>
+                        <constraint firstAttribute="height" constant="25" id="nXy-4w-7ZD"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="ic_speak"/>
+                    <connections>
+                        <action selector="didTapPlayAnser:" destination="-1" eventType="touchUpInside" id="MIb-xo-vua"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TWK-4q-jIa">
+                    <rect key="frame" x="185" y="188" width="44" height="30"/>
+                    <state key="normal" title="Check"/>
+                    <connections>
+                        <action selector="didTapCheck:" destination="-1" eventType="touchUpInside" id="3NY-j1-2B2"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="3Vg-5N-ae7" firstAttribute="leading" secondItem="br5-k2-XcH" secondAttribute="leading" id="55F-W1-Ioy"/>
+                <constraint firstItem="rNv-vi-FgL" firstAttribute="centerX" secondItem="WSJ-qi-MSl" secondAttribute="centerX" id="5B8-mp-kL1"/>
+                <constraint firstItem="br5-k2-XcH" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="5fQ-cB-Mxb"/>
+                <constraint firstItem="TWK-4q-jIa" firstAttribute="top" secondItem="3Vg-5N-ae7" secondAttribute="bottom" constant="50" id="5tT-8b-aQd"/>
+                <constraint firstItem="WSJ-qi-MSl" firstAttribute="centerY" secondItem="br5-k2-XcH" secondAttribute="centerY" id="Bcr-PO-c5a"/>
+                <constraint firstAttribute="trailing" secondItem="WSJ-qi-MSl" secondAttribute="trailing" constant="20" id="JpN-fL-gtM"/>
+                <constraint firstItem="TWK-4q-jIa" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="PgN-2Q-CKk"/>
+                <constraint firstItem="WSJ-qi-MSl" firstAttribute="leading" secondItem="br5-k2-XcH" secondAttribute="trailing" constant="8" id="SkB-hc-Zg5"/>
+                <constraint firstItem="3Vg-5N-ae7" firstAttribute="trailing" secondItem="br5-k2-XcH" secondAttribute="trailing" id="ayU-Ax-sHi"/>
+                <constraint firstItem="br5-k2-XcH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="c1W-7R-lvM"/>
+                <constraint firstItem="3Vg-5N-ae7" firstAttribute="top" secondItem="br5-k2-XcH" secondAttribute="bottom" constant="30" id="dWA-gT-541"/>
+                <constraint firstItem="rNv-vi-FgL" firstAttribute="centerY" secondItem="3Vg-5N-ae7" secondAttribute="centerY" id="esw-Oy-7Je"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="137.68115942028987" y="144.64285714285714"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_speak" width="16" height="16"/>
+    </resources>
+</document>

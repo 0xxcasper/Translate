@@ -250,6 +250,7 @@ struct Firebase {
                     }
                     
                 } else {
+                    completion(sentenceAnswers)
                     SVProgressHUD.dismiss()
                 }
             })
