@@ -60,6 +60,7 @@ class TrainListenViewController: BaseViewController {
                 self.currentIndexSentence = 0
                 self.answers = self.sentenceAnswers[self.currentSentence!]!
                 self.currentIndexAnswer = 0
+                self.btnCheck.isEnabled = true
             } else {
                 self.btnCheck.isEnabled = false
             }

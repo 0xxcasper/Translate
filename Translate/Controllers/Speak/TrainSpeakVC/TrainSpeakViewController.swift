@@ -68,6 +68,7 @@ class TrainSpeakViewController: BaseViewController {
                 self.currentIndexSentence = 0
                 self.answers = self.sentenceAnswers[self.currentSentence!]!
                 self.currentIndexAnswer = 0
+                self.btnRecord.isEnabled = true
             } else {
                 self.btnRecord.isEnabled = false
             }
