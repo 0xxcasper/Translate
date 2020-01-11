@@ -219,6 +219,12 @@ extension TrainSpeakViewController
         if let currentSentence = self.currentSentence {
             let utterance = currentSentence.english.configAVSpeechUtterance()
             synthesizer.speak(utterance)
+            
+            do{
+                let _ = try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.measurement, options: AVAudioSession.CategoryOptions.defaultToSpeaker)
+            }catch{
+                print(error)
+            }
         }
     }
     
@@ -226,6 +232,12 @@ extension TrainSpeakViewController
         if let currentAnswer = self.currentAnswer {
             let utterance = currentAnswer.english.configAVSpeechUtterance()
             synthesizer.speak(utterance)
+            
+            do{
+                let _ = try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.measurement, options: AVAudioSession.CategoryOptions.defaultToSpeaker)
+            }catch{
+                print(error)
+            }
         }
     }
 }
