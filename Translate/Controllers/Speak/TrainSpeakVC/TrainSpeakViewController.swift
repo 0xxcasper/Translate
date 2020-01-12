@@ -138,6 +138,7 @@ class TrainSpeakViewController: BaseViewController {
                 if let text = self.txView.text {
                     let result: ComparisonResult = text.compare(self.currentAnswer?.english ?? "", options: String.CompareOptions.caseInsensitive, range: nil, locale: nil)
                     if result == .orderedSame {
+                        SVProgressHUD.showError(withStatus: "Kết quả chính xác, bạn vui lòng nghe câu tiếp theo")
                         self.txView.text = ""
                         self.nextAnswer()
                     } else {

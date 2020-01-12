@@ -11,6 +11,7 @@ import AVFoundation
 import SVProgressHUD
 
 class TrainListenViewController: BaseViewController {
+    
     @IBOutlet weak var lblSentence: UILabel!
     @IBOutlet weak var txfAnwser: UITextField!
     @IBOutlet weak var btnCheck: UIButton!
@@ -89,6 +90,7 @@ class TrainListenViewController: BaseViewController {
         if let text = self.txfAnwser.text {
             let result: ComparisonResult = text.compare(self.currentAnswer?.english ?? "", options: String.CompareOptions.caseInsensitive, range: nil, locale: nil)
             if result == .orderedSame {
+                SVProgressHUD.showSuccess(withStatus: "Kết quả chính xác, bạn vui lòng nhập câu tiếp theo.")
                 self.txfAnwser.text = ""
                 self.nextAnswer()
             } else {
