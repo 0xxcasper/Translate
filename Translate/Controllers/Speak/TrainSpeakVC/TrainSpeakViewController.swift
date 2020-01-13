@@ -111,14 +111,7 @@ class TrainSpeakViewController: BaseViewController {
     }
     
     private func startRecording() {
-
-        do{
-            let _ = try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.record, mode: AVAudioSession.Mode.measurement, options: AVAudioSession.CategoryOptions.duckOthers)
-        }catch{
-            print(error)
-        }
-        
-        
+        self.configRecord()
         let inputNode = self.audioEngine.inputNode
         let recordingFormat = inputNode.outputFormat(forBus: 0)
         inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer, when) in
@@ -140,7 +133,6 @@ class TrainSpeakViewController: BaseViewController {
 
         self.speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))
         self.recognitionTask = speechRecognizer?.recognitionTask(with: self.recognitionRequest, resultHandler: { (result, error) in
-//            var isFinal = false
             if result != nil {
                 self.txView.text = result?.bestTranscription.formattedString
                 if let text = self.txView.text {
@@ -149,18 +141,12 @@ class TrainSpeakViewController: BaseViewController {
                         SVProgressHUD.showError(withStatus: "Kết quả chính xác, bạn vui lòng nghe câu tiếp theo")
                         self.txView.text = ""
                         self.nextAnswer()
-                    } else {
-                        SVProgressHUD.showError(withStatus: "Kết quả thì sai")
                     }
                 }
-//                isFinal = (result?.isFinal)!
             }
             if error != nil {
-                self.audioEngine.stop()
-                inputNode.removeTap(onBus: 0)
-
-                self.recognitionTask?.cancel()
-                self.btnRecord.isEnabled = true
+                self.checkResult()
+                self.stopRecord()
             }
         })
     }
@@ -168,6 +154,7 @@ class TrainSpeakViewController: BaseViewController {
     private func nextAnswer() {
         if self.answers.count - 1 > self.currentIndexAnswer {
             self.currentIndexAnswer += 1
+            self.stopRecord()
         } else {
             if self.currentIndexSentence < self.sentences.count - 1 {
                 self.currentIndexSentence += 1
@@ -185,28 +172,33 @@ class TrainSpeakViewController: BaseViewController {
 
 // MARK: - Action's Methods
 
-extension TrainSpeakViewController
-{
-    
+extension TrainSpeakViewController {
     
     @IBAction func didTapStartPlayOrPauseRecord(_ sender: UIButton) {
         //nextAnswer()
         if audioEngine.isRunning {
-//            self.recognitionRequest.endAudio()
+            self.stopRecord()
+            self.checkResult()
+        } else {
+            self.startRecording()
+            self.btnRecord.setTitle("Stop Recording", for: .normal)
+        }
+    }
+    
+    private func stopRecord() {
+        if audioEngine.isRunning {
             self.audioEngine.stop()
             self.audioEngine.inputNode.removeTap(onBus: 0)
             self.recognitionTask?.cancel()
-
+            self.btnRecord.isEnabled = true
+            self.txView.text = ""
             self.btnRecord.setTitle("Start Recording", for: .normal)
-        } else {
-//            if noFirst {
-//                try! self.audioEngine.start()
-//            } else {
-//                self.startRecording()
-//                noFirst = true
-//            }
-            self.startRecording()
-            self.btnRecord.setTitle("Stop Recording", for: .normal)
+        }
+    }
+    
+    private func checkResult() {
+        if(self.txView.text != self.currentAnswer?.english ?? "") {
+            SVProgressHUD.showError(withStatus: "Kết quả sai")
         }
     }
     
@@ -214,12 +206,7 @@ extension TrainSpeakViewController
         if let currentSentence = self.currentSentence {
             let utterance = currentSentence.english.configAVSpeechUtterance()
             synthesizer.speak(utterance)
-            
-            do{
-                let _ = try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.measurement, options: AVAudioSession.CategoryOptions.defaultToSpeaker)
-            }catch{
-                print(error)
-            }
+            self.configSpeech()
         }
     }
     
@@ -227,12 +214,23 @@ extension TrainSpeakViewController
         if let currentAnswer = self.currentAnswer {
             let utterance = currentAnswer.english.configAVSpeechUtterance()
             synthesizer.speak(utterance)
-            
-            do{
-                let _ = try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.measurement, options: AVAudioSession.CategoryOptions.defaultToSpeaker)
-            }catch{
-                print(error)
-            }
+            self.configSpeech()
+        }
+    }
+    
+    private func configSpeech() {
+        do{
+            let _ = try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.measurement, options: AVAudioSession.CategoryOptions.defaultToSpeaker)
+        }catch{
+            print(error)
+        }
+    }
+    
+    private func configRecord() {
+        do{
+            let _ = try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.record, mode: AVAudioSession.Mode.measurement, options: AVAudioSession.CategoryOptions.duckOthers)
+        } catch {
+            print(error)
         }
     }
 }
