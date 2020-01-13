@@ -29,7 +29,11 @@ class TrainListenViewController: BaseViewController {
             self.lblSentence.text = currentSentence?.english
         }
     }
-    private var currentAnswer: Sentence?
+    private var currentAnswer: Sentence? {
+        didSet {
+            self.lblResult.text = self.currentAnswer?.english
+        }
+    }
     private var currentIndexAnswer = 0 {
         didSet {
             self.currentAnswer = self.answers[currentIndexAnswer]
@@ -38,7 +42,6 @@ class TrainListenViewController: BaseViewController {
     private var currentIndexSentence = 0 {
         didSet {
             self.currentSentence = self.sentences[currentIndexSentence]
-            self.lblResult.text = self.currentSentence?.english
         }
     }
     var topic: [Topic]!

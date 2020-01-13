@@ -111,6 +111,13 @@ class TrainSpeakViewController: BaseViewController {
     }
     
     private func startRecording() {
+
+        do{
+            let _ = try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.record, mode: AVAudioSession.Mode.measurement, options: AVAudioSession.CategoryOptions.duckOthers)
+        }catch{
+            print(error)
+        }
+        
         
         let inputNode = self.audioEngine.inputNode
         let recordingFormat = inputNode.outputFormat(forBus: 0)
