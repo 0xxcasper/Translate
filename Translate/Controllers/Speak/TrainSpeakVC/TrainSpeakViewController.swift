@@ -49,6 +49,7 @@ class TrainSpeakViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setTitle(title: TITLE_TRAIN_SPEAK)
+        btnRecord.layer.cornerRadius = 6
         self.txView.isEditable = false
         
         self.setupSpeech()

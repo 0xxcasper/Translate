@@ -15,6 +15,8 @@ class TrainListenViewController: BaseViewController {
     @IBOutlet weak var lblSentence: UILabel!
     @IBOutlet weak var txfAnwser: UITextField!
     @IBOutlet weak var btnCheck: UIButton!
+    @IBOutlet weak var lblResult: UILabel!
+    @IBOutlet weak var containerView: UIView!
     
     private let synthesizer = AVSpeechSynthesizer()
     private var sentenceAnswers = [Sentence:[Sentence]]()
@@ -36,15 +38,23 @@ class TrainListenViewController: BaseViewController {
     private var currentIndexSentence = 0 {
         didSet {
             self.currentSentence = self.sentences[currentIndexSentence]
+            self.lblResult.text = self.currentSentence?.english
         }
     }
     var topic: [Topic]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupView()
         self.setTitle(title: TITLE_TRAIN_LISTEN)
         self.getNumberOfAnswerRight()
         self.getAllSentenceAndAnswer()
+    }
+    
+    private func setupView() {
+        btnCheck.layer.cornerRadius = 6
+        lblResult.isHidden = true
+        containerView.addShadowBottom()
     }
     
     private func getNumberOfAnswerRight() {
@@ -111,5 +121,9 @@ class TrainListenViewController: BaseViewController {
             let utterance = currentAnswer.english.configAVSpeechUtterance()
             synthesizer.speak(utterance)
         }
+    }
+    
+    @IBAction func onTapShowResult(_ sender: Any) {
+        lblResult.isHidden = !lblResult.isHidden
     }
 }
