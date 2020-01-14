@@ -145,7 +145,6 @@ class TrainSpeakViewController: BaseViewController {
                 }
             }
             if error != nil {
-                self.checkResult()
                 self.stopRecord()
             }
         })
@@ -167,6 +166,11 @@ class TrainSpeakViewController: BaseViewController {
             }
         }
         Firebase.shared.updateNumberOfAnswerRight(self.numRight + 1)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.stopRecord()
     }
 }
 
