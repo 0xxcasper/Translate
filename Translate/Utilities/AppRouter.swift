@@ -29,8 +29,11 @@ class AppRouter {
         let infoVC = UINavigationController(rootViewController: InfoVC())
         infoVC.tabBarItem = UITabBarItem(title: "Thông tin", image: #imageLiteral(resourceName: "info"), tag: 3)
         
+        let settingVC = UINavigationController(rootViewController: SettingViewController())
+        settingVC.tabBarItem = UITabBarItem(title: "Cài đặt", image: #imageLiteral(resourceName: "info"), tag: 3)
+        
         let tabbar = UITabBarController()
-        tabbar.viewControllers = [topicVC, listenVC, speakVC, infoVC]
+        tabbar.viewControllers = [topicVC, listenVC, speakVC, infoVC, settingVC]
         tabbar.selectedIndex = 0
         
         appWindow.rootViewController = tabbar

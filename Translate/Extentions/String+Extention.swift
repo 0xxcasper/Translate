@@ -78,9 +78,17 @@ extension String {
     
     func configAVSpeechUtterance() -> AVSpeechUtterance {
         let utterance = AVSpeechUtterance(string: self)
-        utterance.voice = AVSpeechSynthesisVoice(identifier: "com.apple.ttsbundle.siri_male_en-GB_compact")
-//        utterance.rate = rate
-//        utterance.pitchMultiplier = pitch
+        if let languageCode = UserDefaultHelper.shared.voiceCode {
+            utterance.voice = AVSpeechSynthesisVoice(identifier: languageCode)
+        } else {
+            utterance.voice = AVSpeechSynthesisVoice(identifier: AVSpeechSynthesisVoice.currentLanguageCode())
+        }
+        if let rate = UserDefaultHelper.shared.rate {
+            utterance.rate = rate
+        }
+        if let pitch = UserDefaultHelper.shared.pitch {
+            utterance.pitchMultiplier = pitch
+        }
         return utterance
     }
     

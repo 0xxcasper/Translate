@@ -7,6 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2503257C23D6ACDA009870BB /* UNITEDKINGDOM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2503257B23D6ACDA009870BB /* UNITEDKINGDOM.swift */; };
+		2503257E23D6ACEE009870BB /* UNITEDSTATES.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2503257D23D6ACEE009870BB /* UNITEDSTATES.swift */; };
+		2503259523D6AE41009870BB /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2503258023D6AE41009870BB /* SettingViewController.swift */; };
+		2503259623D6AE41009870BB /* HeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2503258323D6AE41009870BB /* HeaderCell.xib */; };
+		2503259723D6AE41009870BB /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2503258423D6AE41009870BB /* HeaderCell.swift */; };
+		2503259823D6AE41009870BB /* NormalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2503258623D6AE41009870BB /* NormalTableViewCell.xib */; };
+		2503259923D6AE41009870BB /* NormalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2503258723D6AE41009870BB /* NormalTableViewCell.swift */; };
+		2503259A23D6AE41009870BB /* ControlTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2503258923D6AE41009870BB /* ControlTableViewCell.swift */; };
+		2503259B23D6AE41009870BB /* ControlTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2503258A23D6AE41009870BB /* ControlTableViewCell.xib */; };
+		2503259C23D6AE41009870BB /* ListVoiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2503258C23D6AE41009870BB /* ListVoiceCell.swift */; };
+		2503259D23D6AE41009870BB /* ListVoiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2503258D23D6AE41009870BB /* ListVoiceCell.xib */; };
+		2503259E23D6AE41009870BB /* SelectVoiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2503258F23D6AE41009870BB /* SelectVoiceViewController.xib */; };
+		2503259F23D6AE41009870BB /* SelectVoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2503259023D6AE41009870BB /* SelectVoiceViewController.swift */; };
+		250325A023D6AE41009870BB /* ListVoiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2503259223D6AE41009870BB /* ListVoiceViewController.xib */; };
+		250325A123D6AE41009870BB /* ListVoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2503259323D6AE41009870BB /* ListVoiceViewController.swift */; };
+		250325A223D6AE41009870BB /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2503259423D6AE41009870BB /* SettingViewController.xib */; };
+		250325A523D6AE8A009870BB /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250325A423D6AE8A009870BB /* UserDefaultHelper.swift */; };
+		250325A723D6AEC4009870BB /* VoiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250325A623D6AEC4009870BB /* VoiceModel.swift */; };
+		250325A923D6AEE6009870BB /* SectionVoiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250325A823D6AEE6009870BB /* SectionVoiceModel.swift */; };
+		2509261423D6A8C0003C1C6C /* ListLanguages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2509261323D6A8C0003C1C6C /* ListLanguages.swift */; };
 		253397CB23C5AF0B005A8B0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253397CA23C5AF0B005A8B0C /* AppDelegate.swift */; };
 		253397D223C5AF0C005A8B0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 253397D123C5AF0C005A8B0C /* Assets.xcassets */; };
 		253397D523C5AF0C005A8B0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 253397D323C5AF0C005A8B0C /* LaunchScreen.storyboard */; };
@@ -60,6 +80,26 @@
 
 /* Begin PBXFileReference section */
 		09E162E538C88101AE5D98B5 /* Pods-Translate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Translate.release.xcconfig"; path = "Target Support Files/Pods-Translate/Pods-Translate.release.xcconfig"; sourceTree = "<group>"; };
+		2503257B23D6ACDA009870BB /* UNITEDKINGDOM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UNITEDKINGDOM.swift; sourceTree = "<group>"; };
+		2503257D23D6ACEE009870BB /* UNITEDSTATES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UNITEDSTATES.swift; sourceTree = "<group>"; };
+		2503258023D6AE41009870BB /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		2503258323D6AE41009870BB /* HeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderCell.xib; sourceTree = "<group>"; };
+		2503258423D6AE41009870BB /* HeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		2503258623D6AE41009870BB /* NormalTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NormalTableViewCell.xib; sourceTree = "<group>"; };
+		2503258723D6AE41009870BB /* NormalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NormalTableViewCell.swift; sourceTree = "<group>"; };
+		2503258923D6AE41009870BB /* ControlTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlTableViewCell.swift; sourceTree = "<group>"; };
+		2503258A23D6AE41009870BB /* ControlTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ControlTableViewCell.xib; sourceTree = "<group>"; };
+		2503258C23D6AE41009870BB /* ListVoiceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListVoiceCell.swift; sourceTree = "<group>"; };
+		2503258D23D6AE41009870BB /* ListVoiceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListVoiceCell.xib; sourceTree = "<group>"; };
+		2503258F23D6AE41009870BB /* SelectVoiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectVoiceViewController.xib; sourceTree = "<group>"; };
+		2503259023D6AE41009870BB /* SelectVoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectVoiceViewController.swift; sourceTree = "<group>"; };
+		2503259223D6AE41009870BB /* ListVoiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListVoiceViewController.xib; sourceTree = "<group>"; };
+		2503259323D6AE41009870BB /* ListVoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListVoiceViewController.swift; sourceTree = "<group>"; };
+		2503259423D6AE41009870BB /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		250325A423D6AE8A009870BB /* UserDefaultHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultHelper.swift; sourceTree = "<group>"; };
+		250325A623D6AEC4009870BB /* VoiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceModel.swift; sourceTree = "<group>"; };
+		250325A823D6AEE6009870BB /* SectionVoiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionVoiceModel.swift; sourceTree = "<group>"; };
+		2509261323D6A8C0003C1C6C /* ListLanguages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLanguages.swift; sourceTree = "<group>"; };
 		253397C723C5AF0B005A8B0C /* Translate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Translate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		253397CA23C5AF0B005A8B0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		253397D123C5AF0C005A8B0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -126,6 +166,91 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2503257F23D6AE41009870BB /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				2503258023D6AE41009870BB /* SettingViewController.swift */,
+				2503259423D6AE41009870BB /* SettingViewController.xib */,
+				2503258123D6AE41009870BB /* Cell */,
+				2503258E23D6AE41009870BB /* SelectVoice */,
+				2503259123D6AE41009870BB /* ListVoiceViewController */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		2503258123D6AE41009870BB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2503258223D6AE41009870BB /* HeaderCell */,
+				2503258523D6AE41009870BB /* NormalCell */,
+				2503258823D6AE41009870BB /* ControlCell */,
+				2503258B23D6AE41009870BB /* ListVoiceCell */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		2503258223D6AE41009870BB /* HeaderCell */ = {
+			isa = PBXGroup;
+			children = (
+				2503258323D6AE41009870BB /* HeaderCell.xib */,
+				2503258423D6AE41009870BB /* HeaderCell.swift */,
+			);
+			path = HeaderCell;
+			sourceTree = "<group>";
+		};
+		2503258523D6AE41009870BB /* NormalCell */ = {
+			isa = PBXGroup;
+			children = (
+				2503258623D6AE41009870BB /* NormalTableViewCell.xib */,
+				2503258723D6AE41009870BB /* NormalTableViewCell.swift */,
+			);
+			path = NormalCell;
+			sourceTree = "<group>";
+		};
+		2503258823D6AE41009870BB /* ControlCell */ = {
+			isa = PBXGroup;
+			children = (
+				2503258923D6AE41009870BB /* ControlTableViewCell.swift */,
+				2503258A23D6AE41009870BB /* ControlTableViewCell.xib */,
+			);
+			path = ControlCell;
+			sourceTree = "<group>";
+		};
+		2503258B23D6AE41009870BB /* ListVoiceCell */ = {
+			isa = PBXGroup;
+			children = (
+				2503258C23D6AE41009870BB /* ListVoiceCell.swift */,
+				2503258D23D6AE41009870BB /* ListVoiceCell.xib */,
+			);
+			path = ListVoiceCell;
+			sourceTree = "<group>";
+		};
+		2503258E23D6AE41009870BB /* SelectVoice */ = {
+			isa = PBXGroup;
+			children = (
+				2503258F23D6AE41009870BB /* SelectVoiceViewController.xib */,
+				2503259023D6AE41009870BB /* SelectVoiceViewController.swift */,
+			);
+			path = SelectVoice;
+			sourceTree = "<group>";
+		};
+		2503259123D6AE41009870BB /* ListVoiceViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2503259223D6AE41009870BB /* ListVoiceViewController.xib */,
+				2503259323D6AE41009870BB /* ListVoiceViewController.swift */,
+			);
+			path = ListVoiceViewController;
+			sourceTree = "<group>";
+		};
+		250325A323D6AE7C009870BB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				250325A423D6AE8A009870BB /* UserDefaultHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		253397BE23C5AF0B005A8B0C = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				253397CA23C5AF0B005A8B0C /* AppDelegate.swift */,
+				250325A323D6AE7C009870BB /* Helpers */,
 				25E5735823C70F360001C637 /* Views */,
 				25E5734723C6D0940001C637 /* Delegate */,
 				25E43E7923C5B9DD00D32420 /* Utilities */,
@@ -199,6 +325,7 @@
 		25E43E7823C5B8FB00D32420 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2503257F23D6AE41009870BB /* Setting */,
 				8451077723C60A5800D9E066 /* Authentic */,
 				25E43E7C23C5CCE300D32420 /* Lesson */,
 				25E43E7D23C5CD3300D32420 /* Listen */,
@@ -350,6 +477,8 @@
 				8451078123C60A8200D9E066 /* User.swift */,
 				8451079323C61DD100D9E066 /* Topic.swift */,
 				25E5734C23C6EAB30001C637 /* Sentence.swift */,
+				250325A623D6AEC4009870BB /* VoiceModel.swift */,
+				250325A823D6AEE6009870BB /* SectionVoiceModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -367,6 +496,9 @@
 			children = (
 				8451078823C60AC500D9E066 /* Firebase.swift */,
 				25E5734A23C6DD620001C637 /* FirebaseTranslate.swift */,
+				2509261323D6A8C0003C1C6C /* ListLanguages.swift */,
+				2503257B23D6ACDA009870BB /* UNITEDKINGDOM.swift */,
+				2503257D23D6ACEE009870BB /* UNITEDSTATES.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -493,12 +625,19 @@
 				25E43E7B23C5C03900D32420 /* GoogleService-Info.plist in Resources */,
 				25E43E9223C5CF7600D32420 /* ListSpeakVC.xib in Resources */,
 				25E43E8D23C5CF4E00D32420 /* ListListenVC.xib in Resources */,
+				250325A023D6AE41009870BB /* ListVoiceViewController.xib in Resources */,
+				2503259E23D6AE41009870BB /* SelectVoiceViewController.xib in Resources */,
 				253397D223C5AF0C005A8B0C /* Assets.xcassets in Resources */,
+				2503259D23D6AE41009870BB /* ListVoiceCell.xib in Resources */,
+				2503259B23D6AE41009870BB /* ControlTableViewCell.xib in Resources */,
+				250325A223D6AE41009870BB /* SettingViewController.xib in Resources */,
 				25E43E9C23C5D5F100D32420 /* InfoVC.xib in Resources */,
 				8451077C23C60A5800D9E066 /* RegisterViewController.xib in Resources */,
 				8478EFC523C97C7900EE711E /* TrainListenViewController.xib in Resources */,
 				8451077D23C60A5800D9E066 /* LoginViewController.xib in Resources */,
+				2503259623D6AE41009870BB /* HeaderCell.xib in Resources */,
 				84523B3523C81D50001478D3 /* TrainSpeakViewController.xib in Resources */,
+				2503259823D6AE41009870BB /* NormalTableViewCell.xib in Resources */,
 				8451079023C61A9C00D9E066 /* TopicTableViewCell.xib in Resources */,
 				25E5735223C7046D0001C637 /* SentenceCell.xib in Resources */,
 				845107A023C6261C00D9E066 /* ListSentenceViewController.xib in Resources */,
@@ -571,7 +710,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2503259C23D6AE41009870BB /* ListVoiceCell.swift in Sources */,
+				250325A923D6AEE6009870BB /* SectionVoiceModel.swift in Sources */,
 				8451078523C60A9100D9E066 /* UserAuthViewModel.swift in Sources */,
+				250325A723D6AEC4009870BB /* VoiceModel.swift in Sources */,
+				2503259F23D6AE41009870BB /* SelectVoiceViewController.swift in Sources */,
 				8451079423C61DD100D9E066 /* Topic.swift in Sources */,
 				25E5734D23C6EAB30001C637 /* Sentence.swift in Sources */,
 				8451077E23C60A5800D9E066 /* LoginViewController.swift in Sources */,
@@ -583,25 +726,34 @@
 				8451078B23C60BD500D9E066 /* AppRouter.swift in Sources */,
 				84523B3423C81D50001478D3 /* TrainSpeakViewController.swift in Sources */,
 				8451078F23C61A9C00D9E066 /* TopicTableViewCell.swift in Sources */,
+				2509261423D6A8C0003C1C6C /* ListLanguages.swift in Sources */,
 				8451079223C61B2500D9E066 /* BaseTableViewController.swift in Sources */,
 				8451079823C6219B00D9E066 /* PopUpHelper.swift in Sources */,
 				25E5735623C70BE80001C637 /* ListAnswearVC.swift in Sources */,
 				25E5734B23C6DD620001C637 /* FirebaseTranslate.swift in Sources */,
 				25E43E9B23C5D5F100D32420 /* InfoVC.swift in Sources */,
 				25E5734923C6D0BB0001C637 /* Delegate.swift in Sources */,
+				250325A123D6AE41009870BB /* ListVoiceViewController.swift in Sources */,
 				8451078223C60A8200D9E066 /* User.swift in Sources */,
 				25E5735A23C71A170001C637 /* UIImageView + Extension.swift in Sources */,
 				25E5735123C7046D0001C637 /* SentenceCell.swift in Sources */,
 				253397CB23C5AF0B005A8B0C /* AppDelegate.swift in Sources */,
+				2503259A23D6AE41009870BB /* ControlTableViewCell.swift in Sources */,
+				2503259523D6AE41009870BB /* SettingViewController.swift in Sources */,
+				2503257E23D6ACEE009870BB /* UNITEDSTATES.swift in Sources */,
 				25E43E7023C5B85800D32420 /* String+Extention.swift in Sources */,
 				8451078923C60AC500D9E066 /* Firebase.swift in Sources */,
+				2503259723D6AE41009870BB /* HeaderCell.swift in Sources */,
 				8451079B23C625C500D9E066 /* BaseTableViewCell.swift in Sources */,
 				25E43E6E23C5B85800D32420 /* UIView+Extention.swift in Sources */,
+				2503259923D6AE41009870BB /* NormalTableViewCell.swift in Sources */,
 				8451079F23C6261C00D9E066 /* ListSentenceViewController.swift in Sources */,
 				25E5735E23C71BD90001C637 /* AnswearCell.swift in Sources */,
+				250325A523D6AE8A009870BB /* UserDefaultHelper.swift in Sources */,
 				25E43E9123C5CF7600D32420 /* ListSpeakVC.swift in Sources */,
 				8451077F23C60A5800D9E066 /* RegisterViewController.swift in Sources */,
 				25E43E8C23C5CF4E00D32420 /* ListListenVC.swift in Sources */,
+				2503257C23D6ACDA009870BB /* UNITEDKINGDOM.swift in Sources */,
 				25E43E7623C5B8D600D32420 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
