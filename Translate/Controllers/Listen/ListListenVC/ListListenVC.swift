@@ -7,12 +7,20 @@
 //
 
 import UIKit
+import AVFoundation
 import SVProgressHUD
 
 class ListListenVC: BaseTableViewController {
     
+    private var textSpeak: String = ""
+    private let synthesizer = AVSpeechSynthesizer()
+    private var isMakeSpeak: Bool = false
+    @IBOutlet weak var btnSpeak: UIButton!
+    @IBOutlet weak var lblSpeak: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        synthesizer.delegate = self
         self.setTitle(title: TITLE_CHOOSE_TOPIC)
     }
     
@@ -46,21 +54,67 @@ class ListListenVC: BaseTableViewController {
     }
 
     @IBAction func didTapTrainListen(_ sender: Any) {
-        let topicsSelected = (self.listItem as! [Topic]).filter({ $0.isSelect == true })
-        if topicsSelected.count > 0 {
-            let trainLVC = TrainListenViewController()
-            trainLVC.topic = topicsSelected
-            self.push(controller: trainLVC)
+        isMakeSpeak = !isMakeSpeak
+        if(isMakeSpeak) {
+            lblSpeak.text = "Dừng luyện nghe tiếng anh"
+            let topicsSelected = (self.listItem as! [Topic]).filter({ $0.isSelect == true })
+            if topicsSelected.count > 0 {
+                getAllSentenceAndAnswer(topics: topicsSelected) { (text) in
+                    self.textSpeak = text
+                    self.makeSpeak()
+                }
+            } else {
+                SVProgressHUD.showInfo(withStatus: "Xin hãy chọn chủ đề để luyện nghe")
+            }
         } else {
-            SVProgressHUD.showInfo(withStatus: "Xin hãy chọn chủ đề để luyện nghe")
+            lblSpeak.text = "Luyện nghe tiếng anh"
+            stopSpeak()
+        }
+
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        stopSpeak()
+    }
+    
+    private func makeSpeak() {
+        let utterance = self.textSpeak.configAVSpeechUtterance()
+        self.synthesizer.speak(utterance)
+
+    }
+    
+    private func stopSpeak() {
+        if(self.synthesizer.isSpeaking) {
+            self.synthesizer.stopSpeaking(at: .immediate)
         }
     }
+    
+    private func getAllSentenceAndAnswer(topics: [Topic], _ completion: @escaping (String)->()) {
+        self.textSpeak = ""
+        Firebase.shared.getAllSentencesAndAnswears(topics) { (sentenceAnswers) in
+            var textSpeak = ""
+            for sentence in sentenceAnswers {
+                textSpeak += sentence.key.english ?? ""
+                for value in sentence.value {
+                    textSpeak += value.english
+                }
+            }
+            completion(textSpeak)
+        }
+    }
+
 }
 
-extension ListListenVC: TopicTableViewCellDelegate
-{
+extension ListListenVC: TopicTableViewCellDelegate, AVSpeechSynthesizerDelegate {
     func didTapCheckBox(isSelect: Bool, index: IndexPath) {
         (self.listItem[index.row] as! Topic).isSelect = !(self.listItem[index.row] as! Topic).isSelect
+    }
+    
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        if(isMakeSpeak) {
+           makeSpeak()
+        }
     }
 }
 
